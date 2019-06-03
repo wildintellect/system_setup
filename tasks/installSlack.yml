@@ -1,0 +1,11 @@
+- name: install gdebi
+  apt: 
+        name: gdebi
+        state: present
+
+- name: Download Ubuntu slack package
+  get_url: url=https://downloads.slack-edge.com/linux_releases/slack-desktop-3.4.2-amd64.deb dest=/tmp/slack-desktop.deb 
+  become: no
+
+- name: Install Ubuntu slack package
+  command: gdebi --non-interactive /tmp/slack-desktop.deb

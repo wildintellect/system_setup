@@ -1,0 +1,23 @@
+- name: Add key
+  command: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9  
+
+# following doesnot work
+#apt_key:
+#    url: http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x51716619E084DAB9
+#   id: 51716619E084DAB9
+#    state: present
+
+- name: Add repository
+  apt_repository:
+    repo: "deb https://cran.rstudio.com/bin/linux/ubuntu/ bionic-cran35/"
+    mode: 644
+
+- name: Install utility packages common to all hosts
+  apt:
+    name:
+      - r-base
+      - r-base-dev
+    state: latest
+    autoclean: yes
+    update_cache: true
+

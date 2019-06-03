@@ -1,0 +1,2 @@
+- name: create ansible user
+  user: name=anighosh@hijmansSM01 uid=99

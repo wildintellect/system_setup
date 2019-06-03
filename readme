@@ -1,0 +1,3 @@
+# ansible readme
+sudo su
+ansible-playbook -K playbook.yml --skip-tags "finished"

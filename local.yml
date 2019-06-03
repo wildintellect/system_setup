@@ -1,0 +1,26 @@
+- hosts: 127.0.0.1
+  become: true
+  pre_tasks:
+    - name: update repositories
+      apt: 
+            update_cache=yes
+            upgrade=yes
+      changed_when: False
+
+  tasks:
+    - name: ubuntu pakcage install upgrade
+      include: tasks/packages.yml
+      tags: finished
+
+    - name: install R
+      include: tasks/installR.yml
+      tags: finished
+    
+    - name: install RStudio
+      include: tasks/installRstudio.yml
+      tags: finished
+
+    - name: install slack
+      include: tasks/installSlack.yml
+      tags: finished
+

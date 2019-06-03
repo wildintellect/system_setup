@@ -1,0 +1,14 @@
+- name: Install utility packages common to all hosts
+  apt:
+    name:
+      - htop
+      - mc
+      - curl
+      - tmux
+      - filezilla
+      - gimp
+      - vim
+      - unrar
+      - ffmpeg
+    state: present
+    autoclean: yes
