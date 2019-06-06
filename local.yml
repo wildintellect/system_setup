@@ -2,7 +2,7 @@
   become: true
   pre_tasks:
     - name: update repositories
-      apt: 
+      apt:
             update_cache=yes
             upgrade=yes
       changed_when: False
@@ -15,7 +15,7 @@
     - name: install R
       include: tasks/installR.yml
       tags: finished
-    
+
     - name: install RStudio
       include: tasks/installRstudio.yml
       tags: finished
@@ -24,3 +24,14 @@
       include: tasks/installSlack.yml
       tags: finished
 
+    - name: install chrome
+      include: tasks/installChrome.yml
+      tags: finished
+
+    - name: install atom
+      include: tasks/installAtom.yml
+      tags: finished
+
+    - name: install r dependencies
+      include: tasks/installRdependencies.yml
+      tags: finished

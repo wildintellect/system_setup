@@ -1,0 +1,23 @@
+- name: install apt-transport-https
+  apt:
+    name: apt-transport-https
+    state: present
+
+- name: install apt key
+  apt_key:
+    url: 'https://packagecloud.io/AtomEditor/atom/gpgkey'
+    state: present
+
+- name: install atom repo
+  apt_repository:
+    repo: deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main
+    filename: atom
+    state: present
+
+- name: install atom
+  apt:
+    name: atom
+    state: latest
+    update_cache: true
+
+

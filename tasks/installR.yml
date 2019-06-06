@@ -7,12 +7,12 @@
 #   id: 51716619E084DAB9
 #    state: present
 
-- name: Add repository
+- name: Add CRAN repo
   apt_repository:
     repo: "deb https://cran.rstudio.com/bin/linux/ubuntu/ bionic-cran35/"
     mode: 644
 
-- name: Install utility packages common to all hosts
+- name: Install R
   apt:
     name:
       - r-base

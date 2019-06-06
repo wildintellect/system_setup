@@ -1,0 +1,31 @@
+- name: Install packages required for R
+  apt:
+    name:
+      - build-essential
+      - texlive-full
+      - libudunits2-dev
+      - libudunits2-0
+      - libssh2-1-dev
+      - default-jdk
+      - libssl-dev
+    state: present
+    autoclean: yes
+    update_cache: true
+
+
+- name: Install other R based geos packages
+  apt:
+    name:
+      - build-essential
+      - libgeos-dev
+      - libproj-dev
+      - libgdal-dev
+      - libnetcdf-dev
+      - netcdf-bin
+      - libcairo2-dev
+      - liblwgeom-dev
+      - gdal-bin
+      - python-gdal
+    state: present
+    autoclean: yes
+    update_cache: true
