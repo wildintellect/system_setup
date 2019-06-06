@@ -1,0 +1,19 @@
+- name: Add key
+  command: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ACCAF35C
+
+# if the above doesnot work
+# -name: another attempt to add key
+#  command: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys ACCAF35C
+
+- name: Add insync repo
+  apt_repository:
+    repo: "deb http://apt.insynchq.com/ubuntu artful non-free contrib"
+    mode: 644
+
+- name: Install insync
+  apt:
+    name:
+      - insync
+    state: latest
+    autoclean: yes
+    update_cache: true
