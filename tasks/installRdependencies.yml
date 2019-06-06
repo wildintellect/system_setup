@@ -8,6 +8,11 @@
       - libssh2-1-dev
       - default-jdk
       - libssl-dev
+      - libsodium-dev
+      - libjq-dev
+      - libprotobuf-dev
+      - protobuf-compiler
+      - libv8-dev
     state: present
     autoclean: yes
     update_cache: true

@@ -4,7 +4,7 @@
     - name: update repositories
       apt:
             update_cache=yes
-            upgrade=yes
+            upgrade=dist # to resolve the warning message "Could not find aptitude. Using apt-get instead"
       changed_when: False
 
   tasks:
@@ -34,8 +34,8 @@
 
     - name: install r dependencies
       include: tasks/installRdependencies.yml
-      tags: finished
+      tags: unfinished
 
     - name: install insync
       include: tasks/installInsync.yml
-      tags: unfinished      
+      tags: finished
