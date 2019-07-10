@@ -1,18 +1,18 @@
 - name: Add QGIS key
-  command: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 089EBE08314DF160
+  command: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CAEB3DC3BDF7FB45
 
 - name: Add QGIS key step 2
-  command: gpg --export --armor 089EBE08314DF160 | sudo apt-key add -
+  command: gpg --export --armor CAEB3DC3BDF7FB45 | sudo apt-key add -
 
 - name: Add QGIS repo
   apt_repository:
-    repo: 'deb https://qgis.org/ubuntugis  xenial main'
+    repo: 'deb https://qgis.org/ubuntugis bionic main'
     state: present
     update_cache: yes
 
 - name: Add QGIS src repo
   apt_repository:
-    repo: 'deb-src https://qgis.org/ubuntugis xenial main'
+    repo: 'deb-src https://qgis.org/ubuntugis bionic main'
     state: present
     update_cache: yes
 
