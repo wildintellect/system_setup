@@ -14,7 +14,7 @@
 
     - name: install R
       include: tasks/installR.yml
-      tags: finished
+      tags: unfinished
 
     - name: install RStudio
       include: tasks/installRstudio.yml
@@ -46,4 +46,4 @@
 
     - name: install QGIS
       include: tasks/installQGIS.yml
-      tags: unfinished
+      tags: finished

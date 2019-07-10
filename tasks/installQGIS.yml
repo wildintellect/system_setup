@@ -1,8 +1,7 @@
 - name: Add QGIS key
-  command: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CAEB3DC3BDF7FB45
-
-- name: Add QGIS key step 2
-  command: gpg --export --armor CAEB3DC3BDF7FB45 | sudo apt-key add -
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 61E0A086749E463EDE502255CAEB3DC3BDF7FB45
 
 - name: Add QGIS repo
   apt_repository:
@@ -23,12 +22,14 @@
     update_cache: yes
 
 - name: Install QGIS and related packages
-  apt: pkg={{item}} state=latest update_cache=yes
-  with_items:
-    - qgis
-    - python-qgis
-    - qgis-plugin-grass
+  apt:
+    pkg:
+      - qgis
+      - python-qgis
+      - qgis-plugin-grass
+    state: latest
+    update_cache: yes
 
 
-# https://github.com/qgis/QGIS-Website/issues/462
+# https://www.qgis.org/en/site/forusers/alldownloads.html#debian-ubuntu
 # https://gis.stackexchange.com/questions/276539/installing-qgis3-on-ubuntu-16-04-xenial-dependency-problem
