@@ -34,8 +34,12 @@
 
     - name: install r dependencies
       include: tasks/installRdependencies.yml
-      tags: unfinished
+      tags: finished
 
     - name: install insync
       include: tasks/installInsync.yml
       tags: finished
+
+    - name: install Google Earth
+      include: tasks/installGoogleEarth.yml
+      tags: unfinished
