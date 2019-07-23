@@ -10,5 +10,6 @@
       - vim
       - unrar
       - ffmpeg
+      - ssh-askpass
     state: present
     autoclean: yes
