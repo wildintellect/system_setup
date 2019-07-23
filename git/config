@@ -1,0 +1,12 @@
+# Github
+Host github.com
+HostName ssh.github.com
+User ani-ghosh
+IdentityFile ~/.ssh/id_rsa
+PasswordAuthentication yes
+
+# Bitbucket
+Host bitbucket.org
+HostName bitbucket.org
+User anighosh
+IdentityFile ~/.ssh/id_rsa
