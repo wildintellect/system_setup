@@ -1,11 +1,17 @@
-# Github
+# Github (local)
+# make sure to add the following within each repo that is supposed to go to github
+# git config user.name "githubusername"
+# git config user.email "githubemail"
+# TODO: a separate key for github
+
 Host github.com
 HostName ssh.github.com
 User ani-ghosh
 IdentityFile ~/.ssh/id_rsa
 PasswordAuthentication yes
 
-# Bitbucket
+# Bitbucket (global)
+# still most of my repos are in bitbucket
 Host bitbucket.org
 HostName bitbucket.org
 User anighosh
