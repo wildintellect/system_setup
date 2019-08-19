@@ -8,13 +8,13 @@
       changed_when: False
 
   tasks:
-    - name: ubuntu pakcage install upgrade
+    - name: ubuntu package install upgrade
       include: tasks/packages.yml
       tags: finished
 
     - name: install R
       include: tasks/installR.yml
-      tags: unfinished
+      tags: finished
 
     - name: install RStudio
       include: tasks/installRstudio.yml
@@ -47,3 +47,7 @@
     - name: install QGIS
       include: tasks/installQGIS.yml
       tags: finished
+
+    - name: install Remmina
+      include: tasks/installRemmina.yml
+      tags: unfinished
