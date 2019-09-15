@@ -3,7 +3,7 @@ Automate UBUNTU software installation after new OS install, primarily using [Ans
 
 ### Getting Started ###
 
-* Download [Ansible](https://www.ansible.com/)
+* [Download and install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html?extIdCarryOver=true&sc_cid=701f2000001OH7YAAW#latest-releases-via-apt-ubuntu)
 * Clone repo
 
 ### What's included ###
