@@ -1,13 +1,13 @@
 # README #
-Automate UBUNTU software installation after new OS install
+Automate UBUNTU software installation after new OS install, primarily using [Ansible](https://www.ansible.com/)
 
-### What is this repository for? ###
+### Getting Started ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Download [Ansible](https://www.ansible.com/)
+* Clone repo
 
-### Who do I talk to? ###
+### What's included ###
 
-* Repo owner or admin
-* Other community or team contact
+* Common GIS applications
+* R
+* Other coding tools
