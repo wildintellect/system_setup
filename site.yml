@@ -1,3 +1,7 @@
-- hosts: linuxlaptop
+- name: Setting up a local laptop
+  hosts: linuxlaptop
+  connection: local
   roles:
-    - linuxlaptop
+    - common
+#    - gis
+    

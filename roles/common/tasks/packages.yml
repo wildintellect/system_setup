@@ -1,0 +1,9 @@
+- name: Install utility packages common to all hosts
+  apt:
+    name:
+      - htop
+      - curl
+      - filezilla
+      - ssh-askpass
+    state: present
+    autoclean: yes
