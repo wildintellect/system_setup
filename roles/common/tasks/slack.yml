@@ -4,6 +4,7 @@
         state: present
 
 #TODO only run if slack not installed
+#TODO find the latest download version https://stackoverflow.com/questions/54645470/download-latest-version-of-slack-automatically
 - name: "Slack test result"
   get_url: url=https://downloads.slack-edge.com/linux_releases/slack-desktop-4.2.0-amd64.deb dest=/tmp/slack-desktop.deb
   become: no

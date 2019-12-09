@@ -5,5 +5,9 @@
       - curl
       - filezilla
       - ssh-askpass
+      - netstat
+      - nmap
+      - iftop
+      - git
     state: present
     autoclean: yes
