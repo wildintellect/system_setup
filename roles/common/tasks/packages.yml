@@ -5,9 +5,10 @@
       - curl
       - filezilla
       - ssh-askpass
-      - netstat
+      - net-tools
       - nmap
       - iftop
       - git
+      - firefox
     state: present
     autoclean: yes

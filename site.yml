@@ -1,7 +1,8 @@
 - name: Setting up a local laptop
-  hosts: linuxlaptop
+  hosts: linux
   connection: local
+  become: yes
   roles:
-    - common
+    - role: common
+      when: ansible_facts['os_family'] == 'Debian'
 #    - gis
-    
