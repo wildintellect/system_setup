@@ -2,5 +2,6 @@
   apt:
     name:
       - keepass2
+      - ansible-lint
     state: present
     autoclean: yes
