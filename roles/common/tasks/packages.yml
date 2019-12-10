@@ -10,5 +10,6 @@
       - iftop
       - git
       - firefox
+      - python-apt
     state: present
     autoclean: yes

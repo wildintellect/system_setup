@@ -1,5 +1,9 @@
+# - name: Gather package facts
+#   package_facts:
+#     manager: auto
+
 #TODO find the latest download version https://stackoverflow.com/questions/54645470/download-latest-version-of-slack-automatically
 - name: "Install SpiderOak"
   apt:
     deb: https://spideroak.com/release/spideroak/deb_x64
-  when: '"spideroakone" not in ansible_facts.packages'
+#   when: '"spideroakone" not in ansible_facts.packages'
