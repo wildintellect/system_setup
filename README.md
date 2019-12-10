@@ -41,8 +41,8 @@ TODO: add a script that can be triggered via wget or curl to download and run th
 
 #### how to run ####
 ```
-sudo su
-ansible-playbook -K local.yml --skip-tags "finished"
+ansible-playbook -i inventory -c local -K site.yml
+# You will be prompted Become: <sudo password>
 ```
 
 ## useful materials ##
