@@ -5,4 +5,5 @@
   roles:
     - role: common
       when: ansible_facts['os_family'] == 'Debian'
-#    - gis
+    - role: uncommon
+      when: ansible_facts['os_family'] == 'Debian'

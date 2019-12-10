@@ -1,0 +1,6 @@
+- name: Install utility packages common to all hosts
+  apt:
+    name:
+      - keepass2
+    state: present
+    autoclean: yes
