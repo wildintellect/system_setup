@@ -3,5 +3,6 @@
     name:
       - keepass2
       - ansible-lint
+      - gparted
     state: present
     autoclean: yes
