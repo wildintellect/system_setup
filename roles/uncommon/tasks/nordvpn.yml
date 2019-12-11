@@ -1,0 +1,15 @@
+# https://nordvpn.com/download/linux/
+#TODO find the latest download version https://stackoverflow.com/questions/54645470/download-latest-version-of-slack-automatically
+
+# This only adds the repo
+# TODO replace or make steps dependent
+- name: "Install NordVPN Repo"
+  apt:
+    deb: https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
+
+- name: "Install NordVPN"
+  apt:
+    name:
+      - nordvpn
+
+# Usage https://support.nordvpn.com/Connectivity/Linux/1325531132/Installing-and-using-NordVPN-on-Debian-Ubuntu-and-Linux-Mint.htm

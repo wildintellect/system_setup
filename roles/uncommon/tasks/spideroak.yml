@@ -2,4 +2,4 @@
 - name: "Install SpiderOak"
   apt:
     deb: https://spideroak.com/release/spideroak/deb_x64
-  when: '"spideroakone" not in ansible_facts.packages'
+  # when: '"spideroakone" not in ansible_facts.packages'
