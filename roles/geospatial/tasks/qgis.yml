@@ -5,13 +5,13 @@
 
 - name: Add QGIS repo
   apt_repository:
-    repo: 'deb https://qgis.org/ubuntugis bionic main'
+    repo: 'deb https://qgis.org/ubuntugis {{ansible_distribution_release}} main'
     state: present
     update_cache: yes
 
 - name: Add QGIS src repo
   apt_repository:
-    repo: 'deb-src https://qgis.org/ubuntugis bionic main'
+    repo: 'deb-src https://qgis.org/ubuntugis {{ansible_distribution_release}} main'
     state: present
     update_cache: yes
 

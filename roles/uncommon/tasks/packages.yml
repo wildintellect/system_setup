@@ -4,5 +4,7 @@
       - keepass2
       - ansible-lint
       - gparted
+      - xtightvncviewer
+      - clementine
     state: present
     autoclean: yes
