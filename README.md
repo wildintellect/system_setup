@@ -50,3 +50,10 @@ ansible-playbook -i inventory -c local -K site.yml
 * https://docs.ansible.com/ansible/latest/index.html
 * https://github.com/wtanaka
 * https://gist.github.com/perrygeo/7273812
+
+### Tips ###
+
+* Check you facts
+```
+ansible localhost -c local -i inventory -m setup
+```
