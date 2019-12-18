@@ -11,5 +11,6 @@
       - git
       - firefox
       - python-apt
+      - build-essential
     state: present
     autoclean: yes

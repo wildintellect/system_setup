@@ -15,7 +15,7 @@
     state: present
     update_cache: yes
 
-- name: Add QGIS src repo
+- name: Add Ubuntugis src repo
   apt_repository:
     repo: 'ppa:ubuntugis/ubuntugis-unstable'
     state: present

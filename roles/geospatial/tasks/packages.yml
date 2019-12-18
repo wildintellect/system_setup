@@ -1,0 +1,13 @@
+- name: Install geospatial packages common to all hosts
+  apt:
+    name:
+      - gdal-bin
+      - libgdal-dev
+      - proj-bin
+      - libproj-dev
+      - libgeos-dev
+      - libudunits2-dev
+      - build-essential
+      - spatialite-bin
+    state: present
+    autoclean: yes

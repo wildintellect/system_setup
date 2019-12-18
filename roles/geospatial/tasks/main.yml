@@ -1,0 +1,4 @@
+---
+  - include: qgis.yml
+  - include: packages.yml
+  - include: googleearth.yml
