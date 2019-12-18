@@ -40,12 +40,17 @@ TODO: add a script that can be triggered via wget or curl to download and run th
 ### Notes/Hints ###
 
 #### how to run ####
+To run the main playbook
 ```
 ansible-galaxy install -r requirements.yml
 ansible-playbook -i inventory -c local -K site.yml
 # You will be prompted Become: <sudo password>
 ```
 
+A second playbook which has per user customizations can be run by a user.
+```
+ansible-playbook -i inventory -c local per_user.yml
+```
 ## useful materials ##
 * https://www.tricksofthetrades.net/2017/10/02/ansible-local-playbooks/
 * https://docs.ansible.com/ansible/latest/index.html

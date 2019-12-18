@@ -6,5 +6,6 @@
       - gparted
       - xtightvncviewer
       - clementine
+      - hexchat
     state: present
     autoclean: yes

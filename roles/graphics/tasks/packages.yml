@@ -1,0 +1,7 @@
+- name: Install graphics packages common to all hosts
+  apt:
+    name:
+      - inkscape
+      - gimp
+    state: present
+    autoclean: yes

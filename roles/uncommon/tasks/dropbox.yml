@@ -1,0 +1,5 @@
+#TODO find the latest download version https://stackoverflow.com/questions/54645470/download-latest-version-of-slack-automatically
+# https://www.dropbox.com/install
+- name: "Install Dropbox"
+  apt:
+    deb: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2019.02.14_amd64.deb
