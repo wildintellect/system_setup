@@ -41,6 +41,7 @@ TODO: add a script that can be triggered via wget or curl to download and run th
 
 #### how to run ####
 ```
+ansible-galaxy install -r requirements.yml
 ansible-playbook -i inventory -c local -K site.yml
 # You will be prompted Become: <sudo password>
 ```

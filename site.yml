@@ -6,13 +6,14 @@
     - role: common
       when: ansible_facts['os_family'] == 'Debian'
     - role: gantsign.atom-packages
-        users:
-          - username: {{ ansible_user_id }}
-            atom_packages:
-              - atom-terminal
-              - linter
-              - linter-eslint
-              - platformio-ide-terminal
+      user:
+        - username: ansible_facts['user_id']
+          atom_packages:
+            - atom-terminal
+            - linter
+            - linter-eslint
+            - linter-jsonlint
+            - platformio-ide-terminal
     - role: uncommon
       when: ansible_facts['os_family'] == 'Debian'
     - role: geospatial
