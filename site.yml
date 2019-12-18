@@ -17,6 +17,9 @@
     #         - linter
     #         - linter-eslint
     #         - linter-jsonlint
+    #         - intentions
+    #         - busy-signal
+    #         - linter-ui-default
     #         - platformio-ide-terminal
     #   when: ansible_facts['os_family'] == 'Debian'
     - role: uncommon
