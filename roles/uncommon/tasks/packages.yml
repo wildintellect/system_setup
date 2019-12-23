@@ -7,5 +7,7 @@
       - xtightvncviewer
       - clementine
       - hexchat
+      # get more sophisticated later https://github.com/PeterMosmans/ansible-role-customize-gnome
+      - gnome-tweak-tool
     state: present
     autoclean: yes

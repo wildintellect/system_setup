@@ -59,7 +59,7 @@ ansible-playbook -i inventory -c local per_user.yml
 
 ### Tips ###
 
-* Check you facts
+* Check your facts
 ```
 ansible localhost -c local -i inventory -m setup
 ```
