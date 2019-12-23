@@ -4,3 +4,4 @@
   - include: remmina.yml
   - include: slack.yml
   - include: packages.yml
+  - include: ufw.yml

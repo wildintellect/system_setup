@@ -1,0 +1,26 @@
+- name: Install Firewall (UFW)
+  apt:
+    name:
+      - ufw
+      - gufw
+    state: present
+    autoclean: yes
+
+# Default is Deny all Incoming, Allow outgoing
+- name: Configure UFW Outgoing
+  ufw:
+    state: enabled
+    policy: allow
+    direction: outgoing
+
+- name: Configure UFW Incoming
+  ufw:
+    policy: deny
+    direction: incoming
+
+#Enable if you want ssh in to work, also need to install openssh server
+# - name: Configure UFW SSH Access
+#   ufw:
+#     rule: limit
+#     name: OpenSSH
+#     direction: in
