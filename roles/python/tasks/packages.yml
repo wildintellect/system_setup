@@ -1,0 +1,6 @@
+- name: Install python packages common to all hosts
+  apt:
+    #name:
+    #  -
+    state: present
+    autoclean: yes

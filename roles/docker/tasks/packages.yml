@@ -1,0 +1,10 @@
+- name: Install docker packages common to all hosts
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg-agent
+      - software-properties-common
+    state: present
+    autoclean: yes
