@@ -12,5 +12,6 @@
       - firefox
       - python-apt
       - build-essential
+      - fonts-hack-ttf
     state: present
     autoclean: yes
