@@ -49,7 +49,7 @@ ansible-playbook -i inventory -c local -K site.yml
 
 A second playbook which has per user customizations can be run by a user.
 ```
-ansible-playbook -i inventory -c local per_user.yml
+ansible-playbook -i inventory -c local -K per_user.yml
 ```
 ## useful materials ##
 * https://www.tricksofthetrades.net/2017/10/02/ansible-local-playbooks/

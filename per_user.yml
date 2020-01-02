@@ -17,4 +17,9 @@
             - linter-ui-default
             - platformio-ide-terminal
       when: ansible_facts['os_family'] == 'Debian'
+  tasks:
+    - name: Zotero
+      include: roles/uncommon/tasks/zotero.yml
   # Should docker be done here
+  # Anaconda should be per user
+  # pyenv should be per user
