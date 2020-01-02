@@ -17,6 +17,17 @@
             - linter-ui-default
             - platformio-ide-terminal
       when: ansible_facts['os_family'] == 'Debian'
+    - role: markosamuli.pyenv
+      vars:
+        # TODO: look into virtualenvwraper
+        pyenv_virtualenvwrapper: false
+        # 3.7.6, and 3.8.1 not in released pyenv yet
+        pyenv_python3_version: "3.7.5"
+        pyenv_python_versions:
+          - "{{ pyenv_python3_version }}"
+          - "3.8.0"
+        pyenv_global: system
+
   tasks:
     - name: Zotero
       include: roles/uncommon/tasks/zotero.yml
