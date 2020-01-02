@@ -1,0 +1,43 @@
+---
+# https://www.zotero.org/support/installation
+# TODO: how to make sure this only runs once
+- name: Zotero dependencies
+  apt:
+    name:
+      - libreoffice-java-common
+      
+- name: Download Zotero application.
+  get_url:
+    dest: /tmp/Zotero-5.0.80_linux-x86_64.tar.bz2
+    url: https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64&version=5.0.80
+
+- name: Create zotero directory
+  file:
+    path: /opt/zotero
+    state: directory
+    mode: '0755'
+  become: yes
+
+- name: Extract/Install zotero
+  unarchive:
+    dest: /opt/zotero
+    src: /tmp/Zotero-5.0.80_linux-x86_64.tar.bz2
+    owner: root
+    group: root
+  become: yes
+
+- name: Create Desktop Shortcut
+  command: /bin/bash /opt/zotero/Zotero_linux-x86_64/set_launcher_icon
+  become: yes
+
+- name: Add Zotero to Launcher
+  file:
+    src: /opt/zotero/Zotero_linux-x86_64/zotero.desktop
+    dest:  "/home/{{ansible_facts['user_id']}}/.local/share/applications/zotero.desktop"
+    state: link
+
+
+#ln -s /opt/zotero/zotero.desktop ~/.local/share/applications/zotero.desktop
+
+# Install the browser extension? You should be directed here after first launch
+# This task based on https://gist.github.com/sanguis/8bf9ed0a78eca9ec258bc51aeb05873b
