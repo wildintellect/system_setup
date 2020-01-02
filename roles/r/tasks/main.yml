@@ -1,0 +1,4 @@
+---
+  - include: r.yml
+  - include: rstudio.yml
+  - include: packages.yml
