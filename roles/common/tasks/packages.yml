@@ -17,3 +17,4 @@
       - apt-xapian-index
     state: present
     autoclean: yes
+    update_cache: true

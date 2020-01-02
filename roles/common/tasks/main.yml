@@ -1,7 +1,7 @@
 ---
+  - include: packages.yml
   - include: atom.yml
   - include: chrome.yml
   - include: remmina.yml
   - include: slack.yml
-  - include: packages.yml
   - include: ufw.yml
