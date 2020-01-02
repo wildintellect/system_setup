@@ -5,7 +5,7 @@
   apt:
     name:
       - libreoffice-java-common
-      
+
 - name: Download Zotero application.
   get_url:
     dest: /tmp/Zotero-5.0.80_linux-x86_64.tar.bz2
@@ -24,6 +24,7 @@
     src: /tmp/Zotero-5.0.80_linux-x86_64.tar.bz2
     owner: root
     group: root
+    creates: /opt/zotero/Zotero_linux-x86_64
   become: yes
 
 - name: Create Desktop Shortcut
