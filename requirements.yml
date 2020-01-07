@@ -3,3 +3,5 @@
   version: 1.2.0
 - src: markosamuli.pyenv
   version: v2.1.1
+- src: stephdewit.nvm
+  version: v3.2.0
