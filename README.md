@@ -19,8 +19,8 @@ sudo apt install ansible
 #Using Pip
 sudo apt-get update
 sudo apt-get install python3 -y
-sudo easy_install pip
-sudo pip install ansible
+sudo easy_install pip3
+sudo pip3 install ansible
 ```
 
 #### Download Repo ####

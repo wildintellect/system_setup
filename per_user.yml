@@ -27,9 +27,11 @@
           - "{{ pyenv_python3_version }}"
           - "3.8.0"
         pyenv_global: system
-    - role: stephdewit.nvm
-      nvm_install_path: "/home/{{ansible_facts['user_id']}}/.nvm"
-      nvm_shell_init_file: "/home/{{ansible_facts['user_id']}}/.bashrc"
+    - role: python
+    # Node currently breaks whe trying to install specific version
+    #- role: stephdewit.nvm
+    #  nvm_install_path: "/home/{{ansible_facts['user_id']}}/.nvm"
+    #  nvm_shell_init_file: "/home/{{ansible_facts['user_id']}}/.bashrc"
   tasks:
     - name: Zotero
       include: roles/uncommon/tasks/zotero.yml
