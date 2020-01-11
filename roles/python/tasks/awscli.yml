@@ -1,0 +1,12 @@
+- name: Install AWS cli tools
+  pip:
+    name: awscli
+    executable: pip3
+    extra_args: --upgrade --user
+
+# Bug, https://bugs.launchpad.net/ubuntu/+source/bash/+bug/1588562
+# Make sure .profile exists
+# Add this line to ensure autocompletion
+# export PATH="$(systemd-path user-binaries):$PATH"
+
+# End user needs to run aws configure after

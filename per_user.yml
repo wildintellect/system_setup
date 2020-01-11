@@ -1,0 +1,40 @@
+- name: Setting up a local laptop
+  hosts: linux
+  connection: local
+  #debugger: on_skipped
+  debugger: on_failed
+  roles:
+    - role: gantsign.atom-packages
+      users:
+        - username: "{{ansible_facts['user_id']}}"
+          atom_packages:
+            - atom-terminal
+            - linter
+            - linter-eslint
+            - linter-jsonlint
+            - intentions
+            - busy-signal
+            - linter-ui-default
+            - platformio-ide-terminal
+      when: ansible_facts['os_family'] == 'Debian'
+    - role: markosamuli.pyenv
+      vars:
+        # TODO: look into virtualenvwraper
+        pyenv_virtualenvwrapper: false
+        # 3.7.6, and 3.8.1 not in released pyenv yet
+        pyenv_python3_version: "3.7.5"
+        pyenv_python_versions:
+          - "{{ pyenv_python3_version }}"
+          - "3.8.0"
+        pyenv_global: system
+    - role: python
+    # Node currently breaks whe trying to install specific version
+    #- role: stephdewit.nvm
+    #  nvm_install_path: "/home/{{ansible_facts['user_id']}}/.nvm"
+    #  nvm_shell_init_file: "/home/{{ansible_facts['user_id']}}/.bashrc"
+  tasks:
+    - name: Zotero
+      include: roles/uncommon/tasks/zotero.yml
+  # Should docker be done here
+  # Anaconda should be per user
+  # pyenv should be per user

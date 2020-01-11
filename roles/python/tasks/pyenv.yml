@@ -1,0 +1,6 @@
+#- name: Install Pyenv plugins
+
+#TODO install plugins
+# Which are needed? https://github.com/pyenv/pyenv-installer/blob/master/bin/pyenv-installer
+
+# Could also be done by forking exiting role, and modifying https://github.com/markosamuli/ansible-pyenv/blob/master/tasks/install_with_git.yml

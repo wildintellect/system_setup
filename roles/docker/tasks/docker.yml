@@ -1,0 +1,5 @@
+- name: Install docker packages common to all hosts
+# Configre the repo
+# update the packages
+# install packages
+# configure where the docker images are stored

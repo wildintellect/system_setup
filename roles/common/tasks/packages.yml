@@ -10,5 +10,11 @@
       - iftop
       - git
       - firefox
+      - python-apt
+      - build-essential
+      - fonts-hack-ttf
+      - synaptic
+      - apt-xapian-index
     state: present
     autoclean: yes
+    update_cache: true

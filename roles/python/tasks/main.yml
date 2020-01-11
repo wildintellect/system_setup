@@ -1,0 +1,4 @@
+---
+  - include: packages.yml
+  - include: awscli.yml
+  #ansible-galaxy install markosamuli.pyenv

@@ -4,5 +4,11 @@
       - keepass2
       - ansible-lint
       - gparted
+      - xtightvncviewer
+      - clementine
+      - hexchat
+      # get more sophisticated later https://github.com/PeterMosmans/ansible-role-customize-gnome
+      - gnome-tweak-tool
+      - chrome-gnome-shell
     state: present
     autoclean: yes

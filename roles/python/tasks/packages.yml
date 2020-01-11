@@ -1,0 +1,14 @@
+- name: Install python packages common to all hosts
+  apt:
+    name:
+      - python3-setuptools
+    state: present
+  become: yes
+
+# - name: Use easy_install to install pip
+#   easy_install:
+#     name: pip
+#     state: latest
+#     # Find a better way to make sure it's python3
+#     #executable: /usr/lib/python3/dist-packages/easy_install.py
+#   become: yes

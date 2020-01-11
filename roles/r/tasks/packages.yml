@@ -14,10 +14,7 @@
       - protobuf-compiler
       - libv8-dev
     state: present
-    autoclean: yes
-    update_cache: true
-
-
+    
 - name: Install other R based geos packages
   apt:
     name:
@@ -32,5 +29,3 @@
       - gdal-bin
       - python-gdal
     state: present
-    autoclean: yes
-    update_cache: true

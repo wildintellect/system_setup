@@ -1,21 +1,21 @@
 - name: Add QGIS key
   apt_key:
     keyserver: keyserver.ubuntu.com
-    id: 61E0A086749E463EDE502255CAEB3DC3BDF7FB45
+    id: 8D5A5B203548E5004487DD1951F523511C7028C3
 
 - name: Add QGIS repo
   apt_repository:
-    repo: 'deb https://qgis.org/ubuntugis bionic main'
+    repo: 'deb https://qgis.org/ubuntugis {{ansible_distribution_release}} main'
     state: present
     update_cache: yes
 
 - name: Add QGIS src repo
   apt_repository:
-    repo: 'deb-src https://qgis.org/ubuntugis bionic main'
+    repo: 'deb-src https://qgis.org/ubuntugis {{ansible_distribution_release}} main'
     state: present
     update_cache: yes
 
-- name: Add QGIS src repo
+- name: Add Ubuntugis src repo
   apt_repository:
     repo: 'ppa:ubuntugis/ubuntugis-unstable'
     state: present
@@ -26,7 +26,7 @@
     pkg:
       - qgis
       - python-qgis
-      - qgis-plugin-grass
+      #- qgis-plugin-grass
     state: latest
     update_cache: yes
 

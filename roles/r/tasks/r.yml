@@ -1,13 +1,7 @@
 - name: Add key
   apt_key:
     keyserver: keyserver.ubuntu.com
-    id: E298A3A825C0D65DFD57CBB651716619E084DAB9  
-
-# following doesnot work
-#apt_key:
-#    url: http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x51716619E084DAB9
-#   id: 51716619E084DAB9
-#    state: present
+    id: E298A3A825C0D65DFD57CBB651716619E084DAB9
 
 - name: Add CRAN repo
   apt_repository:
