@@ -9,7 +9,7 @@
 
 - name: "Install NordVPN"
   apt:
-    name:
-      - nordvpn
+    name: nordvpn
+    update-cache: yes
 
 # Usage https://support.nordvpn.com/Connectivity/Linux/1325531132/Installing-and-using-NordVPN-on-Debian-Ubuntu-and-Linux-Mint.htm
