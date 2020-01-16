@@ -16,6 +16,7 @@
             - busy-signal
             - linter-ui-default
             - platformio-ide-terminal
+            - python-black
       when: ansible_facts['os_family'] == 'Debian'
     - role: markosamuli.pyenv
       vars:
@@ -32,6 +33,11 @@
     #- role: stephdewit.nvm
     #  nvm_install_path: "/home/{{ansible_facts['user_id']}}/.nvm"
     #  nvm_shell_init_file: "/home/{{ansible_facts['user_id']}}/.bashrc"
+    - role: gantsign.visual-studio-code
+      users:
+        - username: "{{ansible_facts['user_id']}}"
+          visual_studio_code_extensions:
+            - ms-python.python
   tasks:
     - name: Zotero
       include: roles/uncommon/tasks/zotero.yml
