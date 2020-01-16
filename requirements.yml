@@ -7,3 +7,4 @@
   version: v3.2.0
 - src: ocha.yarn
   version: v1.2.0
+- src: gantsign.visual-studio-code
