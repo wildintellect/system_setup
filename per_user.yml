@@ -42,6 +42,8 @@
   tasks:
     - name: Zotero
       include: roles/uncommon/tasks/zotero.yml
+    - name: Terraform
+      include: roles/uncommon/tasks/tfenv.yml
   # Should docker be done here
   # Anaconda should be per user
   # pyenv should be per user

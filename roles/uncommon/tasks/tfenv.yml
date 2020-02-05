@@ -1,0 +1,15 @@
+---
+# Installs Terraform env manager
+# https://github.com/tfutils/tfenv#installation
+# https://github.com/thaim/ansible-roles/blob/master/roles/terraform/tasks/install_tfenv.yml
+
+- name: Clone tfenv
+  git:
+    repo: https://github.com/tfutils/tfenv
+    dest: "{{ ansible_user_dir }}/.tfenv"
+
+- name: Add tfenv path
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.bashrc"
+    regexp: '^export PATH="$HOME/.tfenv/bin:$PATH"'
+    line: 'export PATH="$HOME/.tfenv/bin:$PATH"'
