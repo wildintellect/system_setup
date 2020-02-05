@@ -8,8 +8,8 @@
 
 - name: Download Zotero application.
   get_url:
-    dest: /tmp/Zotero-5.0.80_linux-x86_64.tar.bz2
-    url: https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64&version=5.0.80
+    dest: /tmp/Zotero-5.0.82_linux-x86_64.tar.bz2
+    url: https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64&version=5.0.82
 
 - name: Create zotero directory
   file:
@@ -21,7 +21,7 @@
 - name: Extract/Install zotero
   unarchive:
     dest: /opt/zotero
-    src: /tmp/Zotero-5.0.80_linux-x86_64.tar.bz2
+    src: /tmp/Zotero-5.0.82_linux-x86_64.tar.bz2
     owner: root
     group: root
     creates: /opt/zotero/Zotero_linux-x86_64
