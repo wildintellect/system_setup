@@ -10,5 +10,7 @@
       # get more sophisticated later https://github.com/PeterMosmans/ansible-role-customize-gnome
       - gnome-tweak-tool
       - chrome-gnome-shell
+      # Optional
+      #- direnv
     state: present
     autoclean: yes
