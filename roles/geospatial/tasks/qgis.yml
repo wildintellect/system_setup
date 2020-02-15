@@ -30,6 +30,6 @@
     state: latest
     update_cache: yes
 
-
+# TODO conflict with python-gdal
 # https://www.qgis.org/en/site/forusers/alldownloads.html#debian-ubuntu
 # https://gis.stackexchange.com/questions/276539/installing-qgis3-on-ubuntu-16-04-xenial-dependency-problem
