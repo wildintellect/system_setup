@@ -9,5 +9,6 @@
       - libudunits2-dev
       - build-essential
       - spatialite-bin
+      - libtiff-tools
     state: present
     autoclean: yes
