@@ -15,6 +15,7 @@
       - fonts-hack-ttf
       - synaptic
       - apt-xapian-index
+      - lm-sensors
     state: present
     autoclean: yes
     update_cache: true
