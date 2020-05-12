@@ -1,5 +1,7 @@
 # README #
-Automate UBUNTU software installation after new OS install, primarily using [Ansible](https://www.ansible.com/)
+Automate Ubuntu software installation after new OS install, primarily using [Ansible](https://www.ansible.com/)
+
+These recipes are intended for a single user desktop environment.
 
 ### Getting Started ###
 
