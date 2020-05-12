@@ -12,7 +12,7 @@
     update_cache: yes
 
 # install packages
-- name: Install QGIS and related packages
+- name: Install Docker
   apt:
     pkg:
       - docker-ce
@@ -39,3 +39,9 @@
     path: /home/{{ansible_facts['user_id']}}/.dockerdata
     state: directory
     mode: '0755'
+
+- name: install docker configuration file from template
+  template:
+    src: daemon.json.j2
+    dest: /etc/docker/daemon.json
+  become: yes
