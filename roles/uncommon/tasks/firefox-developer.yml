@@ -10,22 +10,20 @@
 
 - name: Create firefox directory
   file:
-    path: /opt/firefoxdev
+    path: /opt/
     state: directory
     mode: '0755'
   become: yes
 
-- name: Extract/Install zotero
+- name: Extract/Install Firefox
   unarchive:
-    dest: /opt/firefoxdev
+    dest: /opt/
     src: /tmp/firefox-dev.tar.bz2
-    owner: {{ansible_facts['user_id']}}
-    group: {{ansible_facts['user_id']}}
-    creates: /opt/firefoxdev/
+    owner: root
+    group: root
   become: yes
 
 - name: Add FireFoxDev to Launcher
-  file:
-    src: firefoxDeveloperEdition.desktop
+  copy:
+    src: ../files/firefoxDeveloperEdition.desktop
     dest:  "/home/{{ansible_facts['user_id']}}/.local/share/applications/firefoxDeveloperEdition.desktop"
-    state: link

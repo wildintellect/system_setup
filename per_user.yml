@@ -39,11 +39,16 @@
     #- role: stephdewit.nvm
     #  nvm_install_path: "/home/{{ansible_facts['user_id']}}/.nvm"
     #  nvm_shell_init_file: "/home/{{ansible_facts['user_id']}}/.bashrc"
+
+    # Docker be done here since user needs to be in docker group and location of images is in home
+    #- role: docker
   tasks:
     - name: Zotero
       include: roles/uncommon/tasks/zotero.yml
     - name: Terraform
       include: roles/uncommon/tasks/tfenv.yml
-  # Should docker be done here
-  # Anaconda should be per user
-  # pyenv should be per user
+    # Firefox Developer Edition
+    - name: FirefoxDeveloper
+      include: roles/uncommon/tasks/firefox-developer.yml
+    # Anaconda should be per user
+    # pyenv should be per user
