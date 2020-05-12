@@ -1,0 +1,8 @@
+# A desktop icon you can put in your gnome3/unity doc to kill unresponive windows
+# https://superuser.com/questions/456363/how-to-add-force-quit-icon-in-ubuntu-12-04
+# After this runs, search for force_quit in the launcher or at the location of the .Desktop
+# Drag to the launcher bar.
+- name: Add force_quit to Launcher
+  copy:
+    src: ../files/force_quit.desktop
+    dest:  "/home/{{ansible_facts['user_id']}}/.local/share/applications/force_quit.desktop"

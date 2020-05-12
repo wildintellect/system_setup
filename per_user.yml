@@ -50,5 +50,8 @@
     # Firefox Developer Edition
     - name: FirefoxDeveloper
       include: roles/uncommon/tasks/firefox-developer.yml
+    # Firefox Developer Edition
+    - name: ForceQuit
+      include: roles/uncommon/tasks/force_quit.yml
     # Anaconda should be per user
     # pyenv should be per user
