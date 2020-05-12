@@ -1,0 +1,31 @@
+---
+# https://linuxconfig.org/how-to-install-firefox-developer-edition-on-linux
+# https://medium.com/@js_debugger/how-to-install-firefox-developer-edition-on-ubuntu-1c7f5f2b6883
+# TODO: how to make sure this only runs once?
+
+- name: Download Firefox Developer Edition application.
+  get_url:
+    dest: /tmp/firefox-dev.tar.bz2
+    url: https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US
+
+- name: Create firefox directory
+  file:
+    path: /opt/firefoxdev
+    state: directory
+    mode: '0755'
+  become: yes
+
+- name: Extract/Install zotero
+  unarchive:
+    dest: /opt/firefoxdev
+    src: /tmp/firefox-dev.tar.bz2
+    owner: {{ansible_facts['user_id']}}
+    group: {{ansible_facts['user_id']}}
+    creates: /opt/firefoxdev/
+  become: yes
+
+- name: Add FireFoxDev to Launcher
+  file:
+    src: firefoxDeveloperEdition.desktop
+    dest:  "/home/{{ansible_facts['user_id']}}/.local/share/applications/firefoxDeveloperEdition.desktop"
+    state: link
