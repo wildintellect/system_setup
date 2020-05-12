@@ -1,5 +1,25 @@
 - name: Install docker packages common to all hosts
 # Configre the repo
-# update the packages
+- name: Add Docker key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker repo
+  apt_repository:
+    repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable'
+    state: present
+    update_cache: yes
+
 # install packages
+- name: Install QGIS and related packages
+  apt:
+    pkg:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: latest
+    update_cache: yes
+
+
 # configure where the docker images are stored
