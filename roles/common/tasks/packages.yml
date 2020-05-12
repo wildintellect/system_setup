@@ -16,6 +16,7 @@
       - synaptic
       - apt-xapian-index
       - lm-sensors
+      - powerstat
     state: present
     autoclean: yes
     update_cache: true
