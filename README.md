@@ -65,3 +65,4 @@ ansible-playbook -i inventory -c local -K per_user.yml
 ```
 ansible localhost -c local -i inventory -m setup
 ```
+* [Debugging](https://docs.ansible.com/ansible/latest/user_guide/playbooks_debugger.html)

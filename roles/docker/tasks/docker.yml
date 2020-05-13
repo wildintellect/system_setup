@@ -1,15 +1,17 @@
-- name: Install docker packages common to all hosts
+# Install docker packages common to all hosts
 # Configre the repo
 - name: Add Docker key
+  become: yes
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
 
 - name: Add Docker repo
+  become: yes
   apt_repository:
-    repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable'
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable"
+    filename: docker
     state: present
-    update_cache: yes
 
 # install packages
 - name: Install Docker
@@ -29,15 +31,17 @@
 
 - name: Add user to docker group
   user:
-    name: {{ansible_facts['user_id']}}
+    name: "{{ dock_user }}"
     groups: docker
     append: yes
 
 # configure where the docker images are stored
 - name: Create docker data directory
   file:
-    path: /home/{{ansible_facts['user_id']}}/.dockerdata
+    path: "/home/{{ dock_user}}/.dockerdata"
     state: directory
+    owner: "{{ dock_user }}"
+    group: docker
     mode: '0755'
 
 - name: install docker configuration file from template
