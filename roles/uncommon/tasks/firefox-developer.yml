@@ -8,19 +8,21 @@
     dest: /tmp/firefox-dev.tar.bz2
     url: https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US
 
-- name: Create firefox directory
+- name: Create firefox parent directory
   file:
     path: /opt/
     state: directory
     mode: '0755'
   become: yes
 
+# Single user owns install so it can autoupdate in place
+# TODO: move from /opt to .local?
 - name: Extract/Install Firefox
   unarchive:
     dest: /opt/
     src: /tmp/firefox-dev.tar.bz2
-    owner: root
-    group: root
+    owner: "{{ansible_facts['user_id']}}"
+    group: "{{ansible_facts['user_id']}}"
   become: yes
 
 - name: Add FireFoxDev to Launcher
