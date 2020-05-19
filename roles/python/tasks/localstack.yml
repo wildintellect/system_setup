@@ -1,0 +1,7 @@
+- name: Install LocalStack
+  pip:
+    name: localstack
+    executable: pip3
+    extra_args: --upgrade --user
+
+# Should this require Docker
