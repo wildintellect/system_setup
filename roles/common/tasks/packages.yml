@@ -18,6 +18,7 @@
       - lm-sensors
       - powerstat
       - meld
+      - jq
     state: present
     autoclean: yes
     update_cache: true
