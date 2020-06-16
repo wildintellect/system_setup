@@ -1,0 +1,8 @@
+# Install docker packages common to all hosts
+# Configre the repo
+- name: Add Docker Compose
+  become: yes
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-{{ansible_system}}-{{ansible_architecture}}"
+    dest: /usr/local/bin/docker-compose
+    checksum: "sha256:https://github.com/docker/compose/releases/download/1.25.5/docker-compose-{{ansible_system}}-{{ansible_architecture}}.sha256"
