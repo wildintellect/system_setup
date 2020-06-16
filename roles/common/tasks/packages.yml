@@ -17,6 +17,7 @@
       - apt-xapian-index
       - lm-sensors
       - powerstat
+      - meld
     state: present
     autoclean: yes
     update_cache: true
