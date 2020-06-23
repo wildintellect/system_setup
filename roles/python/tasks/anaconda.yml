@@ -23,7 +23,7 @@
   until: anaconda_download_anaconda is succeeded
   retries: 3
 
-- name: install anaconda
+- name: Install anaconda
   command: "bash /tmp/Anaconda3-2020.02-Linux-x86_64.sh -b-p /home/{{ansible_facts['user_id']}}/anaconda3"
   args:
     creates: "/home/{{ansible_facts['user_id']}}/anaconda3"
