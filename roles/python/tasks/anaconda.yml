@@ -13,3 +13,20 @@
       - libxtst6
     state: present
   become: yes
+
+
+- name: Download Anaconda
+  get_url:
+    url: "https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh"
+    dest: "/tmp/"
+  register: anaconda_download_anaconda
+  until: anaconda_download_anaconda is succeeded
+  retries: 3
+
+- name: install anaconda
+  command: "bash /tmp/Anaconda3-2020.02-Linux-x86_64.sh -b-p /home/{{ansible_facts['user_id']}}/anaconda3"
+  args:
+    creates: "/home/{{ansible_facts['user_id']}}/anaconda3"
+
+#TODO: conda init needs to be run after this?
+#TODO: disable auto loading in shell, conda config --set auto_activate_base false

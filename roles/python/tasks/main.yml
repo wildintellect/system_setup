@@ -1,5 +1,6 @@
 ---
   - include: packages.yml
   - include: awscli.yml
+  - include: anaconda.yml
   #ansible-galaxy install markosamuli.pyenv
   #Anaconda https://tdhopper.com/blog/automating-python-with-ansible/

@@ -60,4 +60,6 @@
     - name: ForceQuit
       include: roles/uncommon/tasks/force_quit.yml
     # Anaconda should be per user
+    - name: Anaconda
+      include: roles/python/tasks/anaconda3.yml
     # pyenv should be per user
