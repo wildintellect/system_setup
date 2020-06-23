@@ -1,4 +1,13 @@
 #TODO find the latest download version https://stackoverflow.com/questions/54645470/download-latest-version-of-slack-automatically
+#TODO switch to ansible galaxy? https://github.com/Oefenweb/ansible-slack
+# Only needs to be done once, since Slack is then managed by apt
+
+- name: check if Slack apt source file exists
+  stat:
+    path: /etc/apt/sources.list.d/slack.list
+  register: slack_apt_list
+
 - name: "Install Slack Desktop"
   apt:
     deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.2.0-amd64.deb
+  when: slack_apt_list.stat.exists == false

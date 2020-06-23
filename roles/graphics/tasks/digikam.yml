@@ -1,0 +1,15 @@
+# This repo is for pre 18.04
+# TODO: find a version of Digikam 6 or use AppImage
+# TODO: if older than 18.04
+#- name: Add Digikam Repo
+#  apt_repository:
+#    repo: 'ppa:philip5/extra'
+#    state: present
+#    update_cache: yes
+
+- name: Install Digikam and related packages
+  apt:
+    pkg:
+      - digikam
+    state: latest
+    update_cache: yes

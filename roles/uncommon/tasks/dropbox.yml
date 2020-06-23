@@ -1,5 +1,13 @@
 #TODO find the latest download version https://stackoverflow.com/questions/54645470/download-latest-version-of-slack-automatically
 # https://www.dropbox.com/install
+# Only needs to be run once, as deb installs apt repo.
+# https://raymii.org/s/tutorials/Ansible_-_Only_if_a_file_exists_or_does_not_exist.html
+
+- name: check if Dropbox apt source file exists
+  stat:
+    path: /etc/apt/sources.list.d/dropbox.list
+  register: dropbox_apt_list
+
 - name: "Install Dropbox dependencies"
   apt:
     name:
@@ -9,3 +17,4 @@
 - name: "Install Dropbox"
   apt:
     deb: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2019.02.14_amd64.deb
+  when: dropbox_apt_list.stat.exists == false
