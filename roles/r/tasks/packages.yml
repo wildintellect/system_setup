@@ -14,8 +14,8 @@
       - protobuf-compiler
       - libv8-dev
     state: present
-    
-- name: Install other R based geos packages
+
+- name: Install other R based geo packages
   apt:
     name:
       - build-essential
@@ -27,5 +27,5 @@
       - libcairo2-dev
       - liblwgeom-dev
       - gdal-bin
-      - python-gdal
+#      - python-gdal
     state: present
