@@ -19,6 +19,7 @@
       - powerstat
       - meld
       - jq
+      - cmake
     state: present
     autoclean: yes
     update_cache: true
