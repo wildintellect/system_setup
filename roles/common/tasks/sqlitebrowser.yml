@@ -1,0 +1,14 @@
+# Remote Desktop client for connecting to Windows machines
+# https://remmina.org/how-to-install-remmina/
+- name: Add SQliteBrowser Repo
+  apt_repository:
+    repo: 'ppa:linuxgndu/sqlitebrowser'
+    state: present
+    update_cache: yes
+
+- name: Install SQliteBrowser packages
+  apt:
+    pkg:
+      - sqlitebrowser
+    state: latest
+    update_cache: yes
