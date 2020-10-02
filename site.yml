@@ -31,7 +31,7 @@
     - role: r
       when: ansible_facts['os_family'] == 'Debian'
     - role: ocha.yarn
-    - role: rclone
+    - role: stefangweichinger.ansible_rclone
   tasks:
     - name: NordVPN
       include: roles/uncommon/tasks/nordvpn.yml

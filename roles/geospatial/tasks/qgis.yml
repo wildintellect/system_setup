@@ -1,7 +1,6 @@
 - name: Add QGIS key
   apt_key:
-    keyserver: keyserver.ubuntu.com
-    id: 8D5A5B203548E5004487DD1951F523511C7028C3
+    url: https://qgis.org/downloads/qgis-2020.gpg.key
 
 - name: Add QGIS repo
   apt_repository:
