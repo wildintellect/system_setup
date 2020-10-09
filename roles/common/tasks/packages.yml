@@ -20,6 +20,7 @@
       - meld
       - jq
       - cmake
+      - font-manager
     state: present
     autoclean: yes
     update_cache: true
