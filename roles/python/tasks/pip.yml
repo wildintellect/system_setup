@@ -1,0 +1,6 @@
+# Install various python packages via pip to a single user
+- name: Pipenv
+  pip:
+    name: pipenv
+    executable: pip3
+    extra_args: --upgrade --user
