@@ -1,0 +1,12 @@
+- hosts: linux
+  connection: local
+  become: true
+  pre_tasks:
+    - name: update repositories
+      apt:
+            update_cache=yes
+            upgrade=dist # to resolve the warning message "Could not find aptitude. Using apt-get instead"
+      changed_when: False
+
+  tasks:
+    - include: roles/graphics/tasks/handbrake.yml
