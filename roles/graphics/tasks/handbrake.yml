@@ -1,0 +1,13 @@
+- name: Add Handbrake Repo
+  apt_repository:
+    repo: 'ppa:stebbins/handbrake-releases'
+    state: present
+    update_cache: yes
+
+- name: Install Handbrake packages
+  apt:
+    pkg:
+      - handbrake-gtk
+      - handbrake-cli
+    state: latest
+    update_cache: yes
