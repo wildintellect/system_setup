@@ -7,7 +7,7 @@ These recipes are intended for a single user desktop environment.
 
 #### Install Ansible ####
 
-[Download and install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html?extIdCarryOver=true&sc_cid=701f2000001OH7YAAW#latest-releases-via-apt-ubuntu)
+[Download and install Ansible](https://docs.ansible.com/projects/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu)
 
 ```
 #Ubuntu repos

@@ -1,25 +1,30 @@
 # Install docker packages common to all hosts
 # Configre the repo
-- name: Add Docker key
-  become: yes
-  apt_key:
-    url: https://download.docker.com/linux/ubuntu/gpg
-    state: present
+- name: Docker
+  block:
+  - name: Add Docker key
+    become: yes
+    ansible.builtin.apt_key:
+      keyring: /etc/apt/trusted.gpg.d/docker.asc
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
 
-- name: Add Docker repo
-  become: yes
-  apt_repository:
-    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable"
-    filename: docker
-    state: present
+  - name: Add Docker repo
+    become: yes
+    ansible.builtin.apt_repository:
+      repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/docker.asc] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable"
+      filename: docker
+      state: present
 
 # install packages
 - name: Install Docker
-  apt:
+  ansible.builtin.apt:
     pkg:
       - docker-ce
       - docker-ce-cli
       - containerd.io
+      - docker-buildx-plugin 
+      - docker-compose-plugin
     state: latest
     update_cache: yes
 
@@ -44,7 +49,7 @@
     group: docker
     mode: '0755'
 
-- name: install docker configuration file from template
+- name: Install docker configuration file from template
   template:
     src: daemon.json.j2
     dest: /etc/docker/daemon.json

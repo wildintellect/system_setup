@@ -28,16 +28,8 @@
       include: tasks/installChrome.yml
       tags: finished
 
-    - name: install atom
-      include: tasks/installAtom.yml
-      tags: finished
-
     - name: install r dependencies
       include: tasks/installRdependencies.yml
-      tags: finished
-
-    - name: install insync
-      include: tasks/installInsync.yml
       tags: finished
 
     - name: install Google Earth
@@ -48,6 +40,3 @@
       include: tasks/installQGIS.yml
       tags: finished
 
-    - name: install Remmina
-      include: tasks/installRemmina.yml
-      tags: unfinished
