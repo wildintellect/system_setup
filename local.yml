@@ -10,34 +10,34 @@
 
   tasks:
     - name: Ubuntu package install upgrade
-      include_tasks: tasks/packages.yml
+      ansible.builtin.include_tasks: tasks/packages.yml
       tags: finished
 
     - name: install R
-      include_tasks: tasks/installR.yml
+      ansible.builtin.include_tasks: tasks/installR.yml
       tags: finished
 
     - name: install RStudio
-      include_tasks: tasks/installRstudio.yml
+      ansible.builtin.include_tasks: tasks/installRstudio.yml
       tags: finished
 
     - name: install slack
-      include_tasks: tasks/installSlack.yml
+      ansible.builtin.include_tasks: tasks/installSlack.yml
       tags: finished
 
     - name: install chrome
-      include_tasks: tasks/installChrome.yml
+      ansible.builtin.include_tasks: tasks/installChrome.yml
       tags: finished
 
     - name: install r dependencies
-      include_tasks: tasks/installRdependencies.yml
+      ansible.builtin.include_tasks: tasks/installRdependencies.yml
       tags: finished
 
     - name: install Google Earth
-      include_tasks: tasks/installGoogleEarth.yml
+      ansible.builtin.include_tasks: tasks/installGoogleEarth.yml
       tags: finished
 
     - name: install QGIS
-      include_tasks: tasks/installQGIS.yml
+      ansible.builtin.include_tasks: tasks/installQGIS.yml
       tags: finished
 

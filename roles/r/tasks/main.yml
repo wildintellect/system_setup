@@ -1,4 +1,4 @@
 ---
-- include_tasks: r.yml
-- include_tasks: rstudio.yml
-- include_tasks: packages.yml
+- ansible.builtin.include_tasks: r.yml
+- ansible.builtin.include_tasks: rstudio.yml
+- ansible.builtin.include_tasks: packages.yml

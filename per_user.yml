@@ -24,14 +24,14 @@
 
   tasks:
     - name: Zotero
-      include_tasks: roles/uncommon/tasks/zotero.yml
+      ansible.builtin.include_tasks: roles/uncommon/tasks/zotero.yml
     # Firefox Developer Edition
     - name: FirefoxDeveloper
-      include_tasks: roles/uncommon/tasks/firefox-developer.yml
+      ansible.builtin.include_tasks: roles/uncommon/tasks/firefox-developer.yml
     # Firefox Developer Edition
     - name: ForceQuit
-      include_tasks: roles/uncommon/tasks/force_quit.yml
+      ansible.builtin.include_tasks: roles/uncommon/tasks/force_quit.yml
     # Conda should be per user
     - name: Miniforge
-      include_tasks: roles/python/tasks/miniforge.yml
+      ansible.builtin.include_tasks: roles/python/tasks/miniforge.yml
     

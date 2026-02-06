@@ -5,5 +5,6 @@
 # Drag to the launcher bar.
 - name: Add force_quit to Launcher
   ansible.builtin.copy:
-    src: ../files/force_quit.desktop
+    src: force_quit.desktop
     dest: "/home/{{ ansible_facts['user_id'] }}/.local/share/applications/force_quit.desktop"
+    mode: '0750'

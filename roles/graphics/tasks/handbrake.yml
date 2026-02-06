@@ -1,13 +1,13 @@
 - name: Add Handbrake Repo
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: 'ppa:stebbins/handbrake-releases'
     state: present
-    update_cache: yes
+    update_cache: true
 
 - name: Install Handbrake packages
-  apt:
+  ansible.builtin.apt:
     pkg:
       - handbrake-gtk
       - handbrake-cli
     state: present
-    update_cache: yes
+    update_cache: true

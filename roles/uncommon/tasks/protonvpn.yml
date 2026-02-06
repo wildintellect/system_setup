@@ -8,43 +8,43 @@
 #  ansible.builtin.apt:
 #    deb: https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.8_all.deb
 - name: Install ProtonVPN
-- vars:
-  temp_dir: "/tmp/positron_install"
+  vars:
+    temp_dir: "/tmp/positron_install"
 
-tasks:
-  - name: Create temporary directory
-    file:
-      path: "{{ temp_dir }}"
-      state: directory
-      mode: '0755'
+  tasks:
+    - name: Create temporary directory
+      file:
+        path: "{{ temp_dir }}"
+        state: directory
+        mode: '0755'
 
-  - name: Download Positron IDE .deb package
-    get_url:
-      url: "https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.8_all.deb"
-      dest: "{{ temp_dir }}/protonvpn.deb"
-      mode: '0644'
-      checksum: '9639541d91cfa41fc4907a46b34c1df93f924f105a1ed57eef99106dbf56560d'
-    register: download_result
+    - name: Download Positron IDE .deb package
+      get_url:
+        url: "https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.8_all.deb"
+        dest: "{{ temp_dir }}/protonvpn.deb"
+        mode: '0644'
+        checksum: '9639541d91cfa41fc4907a46b34c1df93f924f105a1ed57eef99106dbf56560d'
+      register: download_result
 
-  - name: Install Positron IDE
-    become: true
-    apt:
-      deb: "{{ temp_dir }}/positron.deb"
-      state: present
-    when: download_result is succeeded
+    - name: Install Positron IDE
+      become: true
+      apt:
+        deb: "{{ temp_dir }}/positron.deb"
+        state: present
+      when: download_result is succeeded
 
-  - name: Clean up downloaded package
-    file:
-      path: "{{ temp_dir }}"
-      state: absent
+    - name: Clean up downloaded package
+      file:
+        path: "{{ temp_dir }}"
+        state: absent
 
-  - name: Verify Positron installation
-    command: which positron
-    register: positron_check
-    changed_when: false
-    failed_when: false
+    - name: Verify Positron installation
+      command: which positron
+      register: positron_check
+      changed_when: false
+      failed_when: false
 
-  - name: Display installation status
-    debug:
-      msg: "Positron IDE installed successfully at {{ positron_check.stdout }}"
-    when: positron_check.rc == 0
+    - name: Display installation status
+      debug:
+        msg: "Positron IDE installed successfully at {{ positron_check.stdout }}"
+      when: positron_check.rc == 0

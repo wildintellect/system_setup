@@ -9,4 +9,4 @@
       changed_when: False
 
   tasks:
-    - include_tasks: roles/graphics/tasks/handbrake.yml
+    - ansible.builtin.include_tasks: roles/graphics/tasks/handbrake.yml

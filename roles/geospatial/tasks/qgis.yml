@@ -1,33 +1,33 @@
 - name: Add QGIS key
-  apt_key:
+  ansible.builtin.apt_key:
     url: https://qgis.org/downloads/qgis-2020.gpg.key
 
 - name: Add QGIS repo
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: 'deb https://qgis.org/ubuntugis {{ansible_distribution_release}} main'
     state: present
-    update_cache: yes
+    update_cache: true
 
 - name: Add QGIS src repo
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: 'deb-src https://qgis.org/ubuntugis {{ansible_distribution_release}} main'
     state: present
-    update_cache: yes
+    update_cache: true
 
 - name: Add Ubuntugis src repo
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: 'ppa:ubuntugis/ubuntugis-unstable'
     state: present
-    update_cache: yes
+    update_cache: true
 
 - name: Install QGIS and related packages
-  apt:
+  ansible.builtin.apt:
     pkg:
       - qgis
       - python-qgis
       #- qgis-plugin-grass
     state: present
-    update_cache: yes
+    update_cache: true
 
 # TODO conflict with python-gdal
 # https://www.qgis.org/en/site/forusers/alldownloads.html#debian-ubuntu

@@ -1,6 +1,6 @@
 ---
-- include_tasks: packages.yml
-- include_tasks: chrome.yml
-- include_tasks: remmina.yml
-- include_tasks: slack.yml
-- include_tasks: ufw.yml
+- ansible.builtin.include_tasks: packages.yml
+- ansible.builtin.include_tasks: chrome.yml
+- ansible.builtin.include_tasks: remmina.yml
+- ansible.builtin.include_tasks: slack.yml
+- ansible.builtin.include_tasks: ufw.yml

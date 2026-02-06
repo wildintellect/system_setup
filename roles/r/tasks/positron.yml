@@ -1,0 +1,47 @@
+---
+- name: Install Positron IDE on Ubuntu
+  become: true
+
+  vars:
+    positron_version: "2026.02.0"
+    positron_build: "139"
+    download_url: "https://cdn.posit.co/positron/releases/deb/x86_64/Positron-{{ positron_version }}-{{ positron_build }}-x64.deb"
+    temp_dir: "/tmp/positron_install"
+
+  tasks:
+    - name: Create temporary directory
+      file:
+        path: "{{ temp_dir }}"
+        state: directory
+        mode: "0755"
+
+    - name: Download Positron IDE .deb package
+      get_url:
+        url: "{{ download_url }}"
+        dest: "{{ temp_dir }}/positron.deb"
+        mode: "0644"
+        checksum: "9639541d91cfa41fc4907a46b34c1df93f924f105a1ed57eef99106dbf56560d"
+      register: download_result
+
+    - name: Install Positron IDE
+      become: true
+      apt:
+        deb: "{{ temp_dir }}/positron.deb"
+        state: present
+      when: download_result is succeeded
+
+    - name: Clean up downloaded package
+      file:
+        path: "{{ temp_dir }}"
+        state: absent
+
+    - name: Verify Positron installation
+      command: which positron
+      register: positron_check
+      changed_when: false
+      failed_when: false
+
+    - name: Display installation status
+      debug:
+        msg: "Positron IDE installed successfully at {{ positron_check.stdout }}"
+      when: positron_check.rc == 0

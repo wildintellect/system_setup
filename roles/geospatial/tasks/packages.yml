@@ -1,5 +1,5 @@
 - name: Install geospatial packages common to all hosts
-  apt:
+  ansible.builtin.apt:
     name:
       - gdal-bin
       - libgdal-dev
@@ -8,7 +8,7 @@
       - libgeos-dev
       - libudunits2-dev
       - build-essential
-      - spatialite-bin
+      # - spatialite-bin
       - libtiff-tools
     state: present
-    autoclean: yes
+    autoclean: true
