@@ -1,17 +1,18 @@
+---
 # Remote Desktop client for connecting to Windows machines
 # https://remmina.org/how-to-install-remmina/
 - name: Add Remmina Repo
-  apt_repository:
-    repo: 'ppa:remmina-ppa-team/remmina-next'
+  ansible.builtin.apt_repository:
+    repo: "ppa:remmina-ppa-team/remmina-next"
     state: present
-    update_cache: yes
+    update_cache: true
 
 - name: Install Remmina packages
-  apt:
+  ansible.builtin.apt:
     pkg:
       - remmina
       - remmina-plugin-rdp
       - remmina-plugin-secret
       - remmina-plugin-spice
-    state: latest
-    update_cache: yes
+    state: present
+    update_cache: true

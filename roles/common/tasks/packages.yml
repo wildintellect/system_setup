@@ -1,5 +1,6 @@
+---
 - name: Install utility packages common to all hosts
-  apt:
+  ansible.builtin.apt:
     name:
       - htop
       - curl
@@ -22,5 +23,5 @@
       - cmake
       - font-manager
     state: present
-    autoclean: yes
+    autoclean: true
     update_cache: true

@@ -25,7 +25,7 @@
       - containerd.io
       - docker-buildx-plugin 
       - docker-compose-plugin
-    state: latest
+    state: present
     update_cache: yes
 
 # Allow non root-user
@@ -50,7 +50,8 @@
     mode: '0755'
 
 - name: Install docker configuration file from template
+  become: yes
   template:
     src: daemon.json.j2
     dest: /etc/docker/daemon.json
-  become: yes
+  

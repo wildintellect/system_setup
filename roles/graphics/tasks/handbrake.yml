@@ -9,5 +9,5 @@
     pkg:
       - handbrake-gtk
       - handbrake-cli
-    state: latest
+    state: present
     update_cache: yes

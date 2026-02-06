@@ -1,7 +1,6 @@
 ---
-  - include: packages.yml
-  - include: atom.yml
-  - include: chrome.yml
-  - include: remmina.yml
-  - include: slack.yml
-  - include: ufw.yml
+- include_tasks: packages.yml
+- include_tasks: chrome.yml
+- include_tasks: remmina.yml
+- include_tasks: slack.yml
+- include_tasks: ufw.yml

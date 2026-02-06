@@ -1,4 +1,4 @@
 ---
-  - include: r.yml
-  - include: rstudio.yml
-  - include: packages.yml
+- include_tasks: r.yml
+- include_tasks: rstudio.yml
+- include_tasks: packages.yml

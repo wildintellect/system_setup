@@ -1,4 +1,4 @@
 ---
-  - include: qgis.yml
-  - include: packages.yml
-  - include: googleearth.yml
+  - include_tasks: qgis.yml
+  - include_tasks: packages.yml
+  - include_tasks: googleearth.yml

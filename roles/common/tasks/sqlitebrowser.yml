@@ -10,5 +10,5 @@
   apt:
     pkg:
       - sqlitebrowser
-    state: latest
+    state: present
     update_cache: yes

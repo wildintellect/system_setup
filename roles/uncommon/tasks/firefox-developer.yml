@@ -4,28 +4,28 @@
 # TODO: how to make sure this only runs once?
 
 - name: Download Firefox Developer Edition application.
-  get_url:
+  ansible.builtin.get_url:
     dest: /tmp/firefox-dev.tar.bz2
     url: https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US
 
 - name: Create firefox parent directory
-  file:
+  ansible.builtin.file:
     path: /opt/
     state: directory
-    mode: '0755'
-  become: yes
+    mode: "0755"
+  become: true
 
 # Single user owns install so it can autoupdate in place
 # TODO: move from /opt to .local?
 - name: Extract/Install Firefox
-  unarchive:
+  ansible.builtin.unarchive:
     dest: /opt/
     src: /tmp/firefox-dev.tar.bz2
-    owner: "{{ansible_facts['user_id']}}"
-    group: "{{ansible_facts['user_id']}}"
-  become: yes
+    owner: "{{ ansible_facts['user_id'] }}"
+    group: "{{ ansible_facts['user_id'] }}"
+  become: true
 
 - name: Add FireFoxDev to Launcher
-  copy:
+  ansible.builtin.copy:
     src: ../files/firefoxDeveloperEdition.desktop
-    dest:  "/home/{{ansible_facts['user_id']}}/.local/share/applications/firefoxDeveloperEdition.desktop"
+    dest: "/home/{{ ansible_facts['user_id'] }}/.local/share/applications/firefoxDeveloperEdition.desktop"

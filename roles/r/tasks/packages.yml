@@ -1,5 +1,6 @@
+---
 - name: Install packages required for R
-  apt:
+  ansible.builtin.apt:
     name:
       - build-essential
       - texlive-full
@@ -16,7 +17,7 @@
     state: present
 
 - name: Install other R based geo packages
-  apt:
+  ansible.builtin.apt:
     name:
       - build-essential
       - libgeos-dev
@@ -27,5 +28,5 @@
       - libcairo2-dev
       - liblwgeom-dev
       - gdal-bin
-#      - python-gdal
+    #      - python-gdal
     state: present

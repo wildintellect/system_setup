@@ -1,7 +1,8 @@
+---
 - name: Install graphics packages common to all hosts
-  apt:
+  ansible.builtin.apt:
     name:
       - inkscape
       - gimp
     state: present
-    autoclean: yes
+    autoclean: true

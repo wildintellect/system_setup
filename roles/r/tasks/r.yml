@@ -13,6 +13,6 @@
     name:
       - r-base
       - r-base-dev
-    state: latest
+    state: present
     autoclean: yes
     update_cache: true

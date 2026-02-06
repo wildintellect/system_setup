@@ -1,42 +1,43 @@
-- hosts: 127.0.0.1
+- name: Laptop
+  hosts: 127.0.0.1
   become: true
   pre_tasks:
-    - name: update repositories
+    - name: Update repositories
       apt:
-            update_cache=yes
-            upgrade=dist # to resolve the warning message "Could not find aptitude. Using apt-get instead"
-      changed_when: False
+          update_cache=yes
+          upgrade=dist # to resolve the warning message "Could not find aptitude. Using apt-get instead"
+      changed_when: false
 
   tasks:
-    - name: ubuntu package install upgrade
-      include: tasks/packages.yml
+    - name: Ubuntu package install upgrade
+      include_tasks: tasks/packages.yml
       tags: finished
 
     - name: install R
-      include: tasks/installR.yml
+      include_tasks: tasks/installR.yml
       tags: finished
 
     - name: install RStudio
-      include: tasks/installRstudio.yml
+      include_tasks: tasks/installRstudio.yml
       tags: finished
 
     - name: install slack
-      include: tasks/installSlack.yml
+      include_tasks: tasks/installSlack.yml
       tags: finished
 
     - name: install chrome
-      include: tasks/installChrome.yml
+      include_tasks: tasks/installChrome.yml
       tags: finished
 
     - name: install r dependencies
-      include: tasks/installRdependencies.yml
+      include_tasks: tasks/installRdependencies.yml
       tags: finished
 
     - name: install Google Earth
-      include: tasks/installGoogleEarth.yml
+      include_tasks: tasks/installGoogleEarth.yml
       tags: finished
 
     - name: install QGIS
-      include: tasks/installQGIS.yml
+      include_tasks: tasks/installQGIS.yml
       tags: finished
 

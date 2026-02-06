@@ -24,14 +24,14 @@
 
   tasks:
     - name: Zotero
-      include: roles/uncommon/tasks/zotero.yml
+      include_tasks: roles/uncommon/tasks/zotero.yml
     # Firefox Developer Edition
     - name: FirefoxDeveloper
-      include: roles/uncommon/tasks/firefox-developer.yml
+      include_tasks: roles/uncommon/tasks/firefox-developer.yml
     # Firefox Developer Edition
     - name: ForceQuit
-      include: roles/uncommon/tasks/force_quit.yml
+      include_tasks: roles/uncommon/tasks/force_quit.yml
     # Conda should be per user
     - name: Miniforge
-      include: roles/python/tasks/miniforge.yml
+      include_tasks: roles/python/tasks/miniforge.yml
     

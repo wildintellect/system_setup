@@ -11,5 +11,5 @@
   apt:
     pkg:
       - digikam
-    state: latest
+    state: present
     update_cache: yes

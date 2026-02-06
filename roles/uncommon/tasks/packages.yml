@@ -1,5 +1,5 @@
 - name: Install utility packages common to all hosts
-  apt:
+  ansible.builtin.apt:
     name:
       - keepass2
       - ansible-lint
@@ -13,4 +13,4 @@
       # Optional
       #- direnv
     state: present
-    autoclean: yes
+    autoclean: true

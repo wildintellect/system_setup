@@ -1,10 +1,11 @@
+---
 - name: Install Firewall (UFW)
-  apt:
+  ansible.builtin.apt:
     name:
       - ufw
       - gufw
     state: present
-    autoclean: yes
+    autoclean: true
 
 # Default is Deny all Incoming, Allow outgoing
 - name: Configure UFW Outgoing
