@@ -19,7 +19,7 @@
     policy: deny
     direction: incoming
 
-#Enable if you want ssh in to work, also need to install openssh server
+# Enable if you want ssh in to work, also need to install openssh server
 # - name: Configure UFW SSH Access
 #   ufw:
 #     rule: limit

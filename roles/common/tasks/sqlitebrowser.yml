@@ -1,14 +1,13 @@
-# Remote Desktop client for connecting to Windows machines
-# https://remmina.org/how-to-install-remmina/
+---
 - name: Add SQliteBrowser Repo
-  apt_repository:
-    repo: 'ppa:linuxgndu/sqlitebrowser'
+  ansible.builtin.apt_repository:
+    repo: "ppa:linuxgndu/sqlitebrowser"
     state: present
-    update_cache: yes
+    update_cache: true
 
 - name: Install SQliteBrowser packages
-  apt:
+  ansible.builtin.apt:
     pkg:
       - sqlitebrowser
     state: present
-    update_cache: yes
+    update_cache: true

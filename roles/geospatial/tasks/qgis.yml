@@ -1,22 +1,23 @@
+---
 - name: Add QGIS key
   ansible.builtin.apt_key:
     url: https://qgis.org/downloads/qgis-2020.gpg.key
 
 - name: Add QGIS repo
   ansible.builtin.apt_repository:
-    repo: 'deb https://qgis.org/ubuntugis {{ansible_distribution_release}} main'
+    repo: "deb https://qgis.org/ubuntugis {{ ansible_distribution_release }} main"
     state: present
     update_cache: true
 
 - name: Add QGIS src repo
   ansible.builtin.apt_repository:
-    repo: 'deb-src https://qgis.org/ubuntugis {{ansible_distribution_release}} main'
+    repo: "deb-src https://qgis.org/ubuntugis {{ ansible_distribution_release }} main"
     state: present
     update_cache: true
 
 - name: Add Ubuntugis src repo
   ansible.builtin.apt_repository:
-    repo: 'ppa:ubuntugis/ubuntugis-unstable'
+    repo: "ppa:ubuntugis/ubuntugis-unstable"
     state: present
     update_cache: true
 
@@ -25,10 +26,9 @@
     pkg:
       - qgis
       - python-qgis
-      #- qgis-plugin-grass
+      # - qgis-plugin-grass
     state: present
     update_cache: true
 
-# TODO conflict with python-gdal
 # https://www.qgis.org/en/site/forusers/alldownloads.html#debian-ubuntu
 # https://gis.stackexchange.com/questions/276539/installing-qgis3-on-ubuntu-16-04-xenial-dependency-problem

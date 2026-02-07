@@ -1,4 +1,18 @@
 ---
-- ansible.builtin.include_tasks: r.yml
-- ansible.builtin.include_tasks: rstudio.yml
-- ansible.builtin.include_tasks: packages.yml
+- name: R Build Packages
+  ansible.builtin.include_tasks:
+    file: packages.yml
+
+- name: R task
+  ansible.builtin.include_tasks:
+    file: r.yml
+
+- name: Rstudio task
+  ansible.builtin.include_tasks:
+    file: rstudio.yml
+
+- name: Positron
+  vars:
+    temp_dir: "/tmp/positron_install"
+  ansible.builtin.include_tasks:
+    file: positron.yml

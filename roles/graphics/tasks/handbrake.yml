@@ -1,6 +1,7 @@
+---
 - name: Add Handbrake Repo
   ansible.builtin.apt_repository:
-    repo: 'ppa:stebbins/handbrake-releases'
+    repo: "ppa:stebbins/handbrake-releases"
     state: present
     update_cache: true
 

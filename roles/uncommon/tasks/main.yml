@@ -1,5 +1,13 @@
 ---
-- ansible.builtin.include_tasks: packages.yml
-- ansible.builtin.include_tasks: spideroak.yml
-- ansible.builtin.include_tasks: dropbox.yml
-- ansible.builtin.include_tasks: protonvpn.yml
+- name: Uncommon Software Packages
+  ansible.builtin.include_tasks:
+    file: packages.yml
+
+
+- name: Spideroak Task
+  ansible.builtin.include_tasks:
+    file: spideroak.yml
+
+- name: ProtonVPN
+  ansible.builtin.include_tasks:
+    file: protonvpn.yml

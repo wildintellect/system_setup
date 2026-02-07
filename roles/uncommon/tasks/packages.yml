@@ -1,3 +1,4 @@
+---
 - name: Install utility packages common to all hosts
   ansible.builtin.apt:
     name:

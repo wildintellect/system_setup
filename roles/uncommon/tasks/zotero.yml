@@ -10,7 +10,7 @@
   ansible.builtin.get_url:
     dest: /tmp/Zotero-5.0.82_linux-x86_64.tar.bz2
     url: https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64&version=5.0.82
-    mode: '0644'
+    mode: "0644"
 
 - name: Create zotero directory
   ansible.builtin.file:

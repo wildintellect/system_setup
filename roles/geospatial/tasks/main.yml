@@ -1,4 +1,12 @@
 ---
-  - ansible.builtin.include_tasks: qgis.yml
-  - ansible.builtin.include_tasks: packages.yml
-  - ansible.builtin.include_tasks: googleearth.yml
+- name: Geospatial packages
+  ansible.builtin.include_tasks:
+    file: packages.yml
+
+- name: QGIS task
+  ansible.builtin.include_tasks:
+    file: qgis.yml
+
+- name: Google Earth task
+  ansible.builtin.include_tasks:
+    file: googleearth.yml

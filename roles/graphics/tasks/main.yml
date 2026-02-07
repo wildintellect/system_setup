@@ -1,3 +1,6 @@
 ---
-- ansible.builtin.include_tasks: packages.yml
-- ansible.builtin.include_tasks: digikam.yml
+- name: Graphics packages
+  ansible.builtin.include_tasks:
+    file: packages.yml
+
+# - ansible.builtin.include_tasks: digikam.yml
