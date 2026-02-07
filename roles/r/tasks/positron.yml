@@ -9,13 +9,13 @@
 
   block:
     - name: Create temporary directory
-      anisble.builtin.file:
+      ansible.builtin.file:
         path: "{{ temp_dir }}"
         state: directory
         mode: "0755"
 
     - name: Download Positron IDE .deb package
-      anisble.builtin.get_url:
+      ansible.builtin.get_url:
         url: "{{ download_url }}"
         dest: "{{ temp_dir }}/positron.deb"
         mode: "0644"
@@ -24,23 +24,23 @@
 
     - name: Install Positron IDE
       become: true
-      anisble.builtin.apt:
+      ansible.builtin.apt:
         deb: "{{ temp_dir }}/positron.deb"
         state: present
       when: r_download_result is succeeded
 
     - name: Clean up downloaded package
-      anisble.builtin.file:
+      ansible.builtin.file:
         path: "{{ temp_dir }}"
         state: absent
 
     - name: Verify Positron installation
-      anisble.builtin.command: which positron
+      ansible.builtin.command: which positron
       register: r_positron_check
       changed_when: false
       failed_when: false
 
     - name: Display installation status
-      anisble.builtin.debug:
+      ansible.builtin.debug:
         msg: "Positron IDE installed successfully at {{ positron_check.stdout }}"
       when: r_positron_check.rc == 0

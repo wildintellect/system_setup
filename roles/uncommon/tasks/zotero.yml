@@ -31,12 +31,16 @@
 - name: Create Desktop Shortcut
   ansible.builtin.command: /bin/bash /opt/zotero/Zotero_linux-x86_64/set_launcher_icon
   become: true
+  register: uncommon_zotero_icon # <- Registers the command output.
+  changed_when: uncommon_zotero_icon != 0 # <- Uses the return code to define when the task has changed.
+
 
 - name: Add Zotero to Launcher
   ansible.builtin.file:
     src: /opt/zotero/Zotero_linux-x86_64/zotero.desktop
     dest: "/home/{{ ansible_facts['user_id'] }}/.local/share/applications/zotero.desktop"
     state: link
+  when: uncommon_zotero_icon
 
 # ln -s /opt/zotero/zotero.desktop ~/.local/share/applications/zotero.desktop
 
