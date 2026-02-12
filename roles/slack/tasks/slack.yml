@@ -5,7 +5,7 @@
 - name: Check if Slack apt source file exists
   ansible.builtin.stat:
     path: /etc/apt/sources.list.d/slack.list
-  register: common_slack_apt_list
+  register: slack_apt_list
 
 # https://slack.com/downloads/linux
 - name: Install Slack Desktop

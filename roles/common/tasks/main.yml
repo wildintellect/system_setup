@@ -2,15 +2,3 @@
 - name: Common Software Packages
   ansible.builtin.include_tasks:
     file: packages.yml
-
-- name: Chrome Task
-  ansible.builtin.include_tasks:
-    file: chrome.yml
-
-- name: Slack Task
-  ansible.builtin.include_tasks:
-    file: slack.yml
-
-- name: UFW Taks
-  ansible.builtin.include_tasks:
-    file: ufw.yml

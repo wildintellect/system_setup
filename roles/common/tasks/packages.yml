@@ -4,13 +4,11 @@
     name:
       - htop
       - curl
-      - filezilla
       - ssh-askpass
       - net-tools
       - nmap
       - iftop
       - git
-      - firefox
       - python-apt
       - build-essential
       - fonts-hack-ttf
