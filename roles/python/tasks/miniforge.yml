@@ -1,17 +1,18 @@
 # change to miniforge
 
 - name: Download Miniforge3
-  get_url:
+  ansible.builtin.get_url:
     url: "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh"
     dest: "/tmp/"
-  register: miniforge_download
-  until: miniforge_download is succeeded
+    mode: '0744'
+  register: python_miniforge_download
+  until: python_miniforge_download is succeeded
   retries: 3
 
 - name: Install miniforge
-  command: "bash /tmp/Miniforge3-Linux-x86_64.sh -b -f -p -c /home/{{ansible_facts['user_id']}}/miniforge3"
+  ansible.builtin.command: "bash /tmp/Miniforge3-Linux-x86_64.sh -b -f -p -c /home/{{ ansible_facts['user_id'] }}/miniforge3"
   args:
-    creates: "/home/{{ansible_facts['user_id']}}/miniforge3"
-  when: miniforge_download
+    creates: "/home/{{ ansible_facts['user_id'] }}/miniforge3"
+  when: python_miniforge_download
 
-#TODO: disable auto loading in shell, conda config --set auto_activate_base false
+# TODO: disable auto loading in shell, conda config --set auto_activate_base false

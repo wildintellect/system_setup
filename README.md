@@ -10,7 +10,7 @@ These recipes are intended for a single user desktop environment.
 [Download and install Ansible](https://docs.ansible.com/projects/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu)
 
 ```
-#Ubuntu repos
+# Ubuntu PPA repos
 sudo apt update
 sudo apt install software-properties-common
 sudo apt-add-repository --yes --update ppa:ansible/ansible
@@ -18,7 +18,7 @@ sudo apt install ansible
 ```
 
 ```
-#Using Pip
+# Using Pip doesn't work on Ubuntu anymore
 sudo apt-get update
 sudo apt-get install python3 -y
 sudo easy_install pip3
@@ -27,7 +27,7 @@ sudo pip3 install ansible
 
 #### Download Repo ####
 
-1. Download repo and unzip
+1. Download this repo and unzip
 OR
 1. Install git and clone repo
 
@@ -35,11 +35,11 @@ TODO: add a script that can be triggered via wget or curl to download and run th
 
 ### What's included ###
 
-* Common GIS applications
-* R
-* Other coding tools
+This is an opnionated list of things I need on some of my machines
+See the site.yml file
 
 ### Notes/Hints ###
+Some of the roles are not single software but related software together to reduce redundancy
 
 #### how to run ####
 To run the main playbook
@@ -49,7 +49,7 @@ ansible-playbook -i inventory -c local -K site.yml
 # You will be prompted Become: <sudo password>
 ```
 
-A second playbook which has per user customizations can be run by a user.
+A second playbook which has software that can only be installed for individual users.
 ```
 ansible-playbook -i inventory -c local -K per_user.yml
 ```

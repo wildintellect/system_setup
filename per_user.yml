@@ -1,7 +1,7 @@
 - name: Setting up a local laptop
   hosts: linux
   connection: local
-  #debugger: on_skipped
+  # debugger: on_skipped
   debugger: on_failed
   roles:
     - role: gantsign.visual-studio-code
@@ -10,17 +10,16 @@
           visual_studio_code_extensions:
             - ms-python.python
     # Node currently breaks whe trying to install specific version
-    #- role: stephdewit.nvm
+    # - role: stephdewit.nvm
     #  nvm_install_path: "/home/{{ansible_facts['user_id']}}/.nvm"
     #  nvm_shell_init_file: "/home/{{ansible_facts['user_id']}}/.bashrc"
 
     # Docker be done here since user needs to be in docker group and location of images is in home
-    #- role: docker
     - role: docker
       vars:
-        dock_group: "docker"
-        dock_user: "{{ ansible_facts['user_id'] }}"
-      become: yes
+        docker_group: "docker"
+        docker_user: "{{ ansible_facts['user_id'] }}"
+      become: true
 
   tasks:
     - name: Zotero
@@ -34,4 +33,3 @@
     # Conda should be per user
     - name: Miniforge
       ansible.builtin.include_tasks: roles/python/tasks/miniforge.yml
-    

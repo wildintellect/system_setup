@@ -1,4 +1,7 @@
 ---
-  - ansible.builtin.include_tasks: packages.yml
-  - ansible.builtin.include_tasks: docker.yml
-  - ansible.builtin.include_tasks: docker-compose.yml
+- name: Docker dependencies
+  ansible.builtin.include_tasks:
+    file: packages.yml
+- name: Docker main
+  ansible.builtin.include_tasks:
+    file: docker.yml
