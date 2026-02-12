@@ -19,11 +19,11 @@
         mode: "0644"
       register: zoom_download_result
 
-    - name: Add the Zoom PGP key
-      ansible.builtin.get_url:
-        url: https://zoom.us/linux/download/pubkey?version=6-7-5
-        dest: "{{ temp_dir }}/package-signing-key-6-7-5.pub"
-        mode: '0644'
+    # - name: Add the Zoom PGP key
+    #  ansible.builtin.get_url:
+    #    url: https://zoom.us/linux/download/pubkey?version=6-7-5
+    #    dest: "{{ temp_dir }}/package-signing-key-6-7-5.pub"
+    #    mode: '0644'
 
     - name: Install Zoom
       become: true
