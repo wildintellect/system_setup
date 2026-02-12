@@ -1,1 +1,6 @@
 # Digikam should be installed with a snap now
+
+- name: Install Digikam
+  community.general.snap:
+    name:
+      - digikam

@@ -3,4 +3,6 @@
   ansible.builtin.include_tasks:
     file: packages.yml
 
-# - ansible.builtin.include_tasks: digikam.yml
+- name: Digikam Snap
+  ansible.builtin.include_tasks:
+    file: digikam.yml
