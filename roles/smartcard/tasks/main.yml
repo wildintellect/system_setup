@@ -1,0 +1,11 @@
+- name: Install SmartCard
+  ansible.builtin.apt:
+    name:
+      - libpcsclite1
+      - pcscd
+      - pcsc-tools
+      - opensc
+      - libp11-3
+      - opensc-pkcs11
+    state: present
+    autoclean: true
