@@ -3,7 +3,6 @@
   ansible.builtin.include_tasks:
     file: packages.yml
 
-
 - name: Spideroak Task
   ansible.builtin.include_tasks:
     file: spideroak.yml
@@ -11,3 +10,11 @@
 - name: ProtonVPN
   ansible.builtin.include_tasks:
     file: protonvpn.yml
+
+- name: Firefox developer
+  ansible.builtin.include_tasks:
+    file: firefox-developer.yml
+
+- name: Force Quit
+  ansible.builtin.include_tasks:
+    file: force_quit.yml
