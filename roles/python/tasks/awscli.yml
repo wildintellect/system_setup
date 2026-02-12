@@ -7,7 +7,7 @@
 
 # AWS v2
 - name: Download AWS cli v2
-  get_url:
+  ansible.builtin.get_url:
     url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
     dest: /tmp/awscliv2.zip
   register: aws_download_cli
@@ -17,7 +17,7 @@
 #TODO: verify the gpg signing https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install
 
 - name: Extract AWS cli v2 installer
-  unarchive:
+  ansible.builtin.unarchive:
     dest: /tmp/
     src: /tmp/awscliv2.zip
     owner: "{{ansible_facts['user_id']}}"
@@ -25,7 +25,7 @@
     creates: /tmp/aws
 
 - name: Install AWS cli tools v2
-  command: "bash /tmp/aws/install --bin-dir /home/{{ansible_facts['user_id']}}/.local/bin/ --install-dir /home/{{ansible_facts['user_id']}}/aws-cli"
+  ansible.builtin.command: "bash /tmp/aws/install --bin-dir /home/{{ansible_facts['user_id']}}/.local/bin/ --install-dir /home/{{ansible_facts['user_id']}}/aws-cli"
   args:
     creates: "/home/{{ansible_facts['user_id']}}/.local/bin/aws"
 

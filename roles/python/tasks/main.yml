@@ -1,6 +1,6 @@
 ---
   - ansible.builtin.include_tasks: packages.yml
-  - ansible.builtin.include_tasks: awscli.yml
-  #- ansible.builtin.include_tasks: anaconda.yml
-  #ansible-galaxy install markosamuli.pyenv
-  #Anaconda https://tdhopper.com/blog/automating-python-with-ansible/
+ # - ansible.builtin.include_tasks: awscli.yml
+  - ansible.builtin.include_tasks: miniconda.yml
+  # ansible-galaxy install markosamuli.pyenv
+  # Anaconda https://tdhopper.com/blog/automating-python-with-ansible/

@@ -4,9 +4,3 @@ collections:
 
 roles:
   - src: gantsign.visual-studio-code
-
-#- src: stephdewit.nvm
-#  version: v3.2.0
-#- src: ocha.yarn
-#  version: v1.2.0
-#- src: stefangweichinger.ansible_rclone
