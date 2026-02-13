@@ -4,3 +4,5 @@ collections:
 
 roles:
   - src: gantsign.visual-studio-code
+  # - src: morgangraphics.ansible-role-nvm
+  - src: stephdewit.nvm

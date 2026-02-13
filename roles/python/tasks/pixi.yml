@@ -1,17 +1,18 @@
-# change to pixi
+# install pixi
 
 - name: Download Pixi
-  get_url:
+  ansible.builtin.get_url:
     url: "https://pixi.sh/install.sh"
-    dest: "/tmp/"
-  register: pixi_download
-  until: pixi_download is succeeded
+    dest: "/tmp/pixi_install.sh"
+    mode: '0744'
+  register: python_pixi_download
+  until: python_pixi_download is succeeded
   retries: 3
 
 - name: Install pixi
-  command: "bash /tmp/install.sh"
+  ansible.builtin.command: "bash /tmp/pixi_install.sh"
   args:
-    creates: "/home/{{ansible_facts['user_id']}}/.pixi"
-  when: pixi_download
+    creates: "/home/{{ ansible_facts['user_id'] }}/.pixi"
+  when: python_pixi_download
 
 # eval "$(pixi completion --shell bash)"

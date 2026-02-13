@@ -1,0 +1,6 @@
+---
+dependencies:
+  - role: stephdewit.nvm
+    nvm_version: 'latest'
+    nvm_node_version: 'lts'
+    register: node_check

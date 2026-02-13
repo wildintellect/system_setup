@@ -6,13 +6,19 @@
   roles:
     - role: gantsign.visual-studio-code
       users:
-        - username: "{{ansible_facts['user_id']}}"
+        - username: "{{ ansible_facts['user_id'] }}"
           visual_studio_code_extensions:
             - ms-python.python
-    # Node currently breaks whe trying to install specific version
-    # - role: stephdewit.nvm
-    #  nvm_install_path: "/home/{{ansible_facts['user_id']}}/.nvm"
-    #  nvm_shell_init_file: "/home/{{ansible_facts['user_id']}}/.bashrc"
+
+    # Node with pnpm
+    - role: node
+
+    # - role: morgangraphics.ansible-role-nvm
+    #  nodejs_version: "lts" # Latest LTS at the time
+    #  nvm_commands:
+    #    - "nvm exec default npm install"
+    #  become: true            # THIS WILL CHANGE THE LOGIN CONTEXT TO USE THE USER BELOW
+    #  become_user: "{{ ansible_facts['user_id'] }}"
 
     # Docker be done here since user needs to be in docker group and location of images is in home
     - role: docker
@@ -23,13 +29,24 @@
 
   tasks:
     - name: Zotero
-      ansible.builtin.include_tasks: roles/uncommon/tasks/zotero.yml
+      ansible.builtin.include_tasks:
+        file: roles/uncommon/tasks/zotero.yml
+
     # Firefox Developer Edition
-    - name: FirefoxDeveloper
-      ansible.builtin.include_tasks: roles/uncommon/tasks/firefox-developer.yml
-    # Firefox Developer Edition
-    - name: ForceQuit
-      ansible.builtin.include_tasks: roles/uncommon/tasks/force_quit.yml
+    - name: Firefox developer
+      ansible.builtin.include_tasks:
+        file: roles/uncommon/tasks/firefox-developer.yml
+    # A button to easily quit frozen apps
+    - name: Force Quit
+      ansible.builtin.include_tasks:
+        file: roles/uncommon/tasks/force_quit.yml
+
     # Conda should be per user
     - name: Miniforge
-      ansible.builtin.include_tasks: roles/python/tasks/miniforge.yml
+      ansible.builtin.include_tasks:
+        file: roles/python/tasks/miniforge.yml
+
+    # Pixi per user
+    - name: Pixi
+      ansible.builtin.include_tasks:
+        file: roles/python/tasks/pixi.yml

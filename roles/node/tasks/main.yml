@@ -1,0 +1,6 @@
+---
+- name: Install pnpm globally using npm
+  community.general.npm:
+    name: pnpm
+    global: true
+    state: present
