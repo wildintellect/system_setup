@@ -7,6 +7,6 @@
   ansible.builtin.include_tasks:
     file: spideroak.yml
 
-- name: ProtonVPN
-  ansible.builtin.include_tasks:
-    file: protonvpn.yml
+# - name: ProtonVPN
+#  ansible.builtin.include_tasks:
+#    file: protonvpn.yml

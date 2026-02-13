@@ -8,39 +8,41 @@
 #  ansible.builtin.apt:
 #    deb: https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.8_all.deb
 
-- name: Create temporary directory
-  ansible.builtin.file:
-    path: "{{ temp_dir }}"
-    state: directory
-    mode: '0755'
-
-- name: Download Positron IDE .deb package
+- name: Download ProtonVPN IDE .deb package
   ansible.builtin.get_url:
     url: "https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.8_all.deb"
     dest: "{{ temp_dir }}/protonvpn.deb"
     mode: '0644'
-    checksum: '9639541d91cfa41fc4907a46b34c1df93f924f105a1ed57eef99106dbf56560d'
+    checksum: 'sha256:0b14e71586b22e498eb20926c48c7b434b751149b1f2af9902ef1cfe6b03e180'
   register: uncommon_download_result
 
-- name: Install Positron IDE
+- name: Install ProtonVPN Source
   become: true
   ansible.builtin.apt:
-    deb: "{{ temp_dir }}/positron.deb"
+    deb: "{{ temp_dir }}/protonvpn.deb"
     state: present
   when: uncommon_download_result is succeeded
 
+- name: Install ProtonVPN
+  become: true
+  ansible.builtin.apt:
+    name:
+      - proton-vpn-gnome-desktop
+    state: present
+    update_cache: true
+    
 - name: Clean up downloaded package
   ansible.builtin.file:
     path: "{{ temp_dir }}"
     state: absent
 
-- name: Verify Positron installation
-  ansible.builtin.command: which positron
-  register: uncommon_positron_check
+- name: Verify ProtonVPN installation
+  ansible.builtin.command: which protonvpn-app
+  register: uncommon_proton_check
   changed_when: false
   failed_when: false
 
 - name: Display installation status
   ansible.builtin.debug:
-    msg: "Positron IDE installed successfully at {{ positron_check.stdout }}"
-  when: uncommon_positron_check.rc == 0
+    msg: "ProtonVPN installed successfully at {{ positron_check.stdout }}"
+  when: uncommon_proton_check.rc == 0

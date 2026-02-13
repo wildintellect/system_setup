@@ -21,11 +21,11 @@
     #  become_user: "{{ ansible_facts['user_id'] }}"
 
     # Docker be done here since user needs to be in docker group and location of images is in home
-    - role: docker
-      vars:
-        docker_group: "docker"
-        docker_user: "{{ ansible_facts['user_id'] }}"
-      become: true
+    # - role: docker
+    #  vars:
+    #    docker_group: "docker"
+    #    docker_user: "{{ ansible_facts['user_id'] }}"
+    #  become: true
 
   tasks:
     - name: Zotero

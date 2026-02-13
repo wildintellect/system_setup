@@ -9,7 +9,7 @@
       - nmap
       - iftop
       - git
-      - python-apt
+      - python-apt-common
       - build-essential
       - fonts-hack-ttf
       - synaptic
