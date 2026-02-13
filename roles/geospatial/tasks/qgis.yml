@@ -1,19 +1,19 @@
 ---
 - name: Add QGIS key
   ansible.builtin.apt_key:
-    url: https://qgis.org/downloads/qgis-2020.gpg.key
+    keyring: /etc/apt/keyrings/qgis-archive-keyring.gpg
+    url: https://download.qgis.org/downloads/qgis-archive-keyring.gpg
+    state: present
 
 - name: Add QGIS repo
-  ansible.builtin.apt_repository:
-    repo: "deb https://qgis.org/ubuntugis {{ ansible_distribution_release }} main"
-    state: present
-    update_cache: true
-
-- name: Add QGIS src repo
-  ansible.builtin.apt_repository:
-    repo: "deb-src https://qgis.org/ubuntugis {{ ansible_distribution_release }} main"
-    state: present
-    update_cache: true
+  ansible.builtin.deb822_repository:
+    name: qgis
+    types: [deb, deb-src]
+    suites: "{{ ansible_distribution_release }}"
+    components: main
+    uris: https://qgis.org/ubuntugis
+    architectures: amd64
+    signed_by: /etc/apt/keyrings/qgis-archive-keyring.gpg
 
 - name: Add Ubuntugis src repo
   ansible.builtin.apt_repository:
