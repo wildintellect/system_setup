@@ -30,7 +30,7 @@
       - proton-vpn-gnome-desktop
     state: present
     update_cache: true
-    
+
 - name: Clean up downloaded package
   ansible.builtin.file:
     path: "{{ temp_dir }}"

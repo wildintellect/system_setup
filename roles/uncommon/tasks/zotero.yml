@@ -5,11 +5,12 @@
   ansible.builtin.apt:
     name:
       - libreoffice-java-common
+  become: true
 
 - name: Download Zotero application.
   ansible.builtin.get_url:
-    dest: /tmp/Zotero-5.0.82_linux-x86_64.tar.bz2
-    url: https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64&version=5.0.82
+    dest: /tmp/Zotero-8.0.3_linux-x86_64.tar.bz2
+    url: https://download.zotero.org/client/release/8.0.3/Zotero-8.0.3_linux-x86_64.tar.xz
     mode: "0644"
 
 - name: Create zotero directory
@@ -22,7 +23,7 @@
 - name: Extract/Install zotero
   ansible.builtin.unarchive:
     dest: /opt/zotero
-    src: /tmp/Zotero-5.0.82_linux-x86_64.tar.bz2
+    src: /tmp/Zotero-8.0.3_linux-x86_64.tar.bz2
     owner: "{{ ansible_facts['user_id'] }}"
     group: "{{ ansible_facts['user_id'] }}"
     creates: /opt/zotero/Zotero_linux-x86_64
@@ -32,7 +33,7 @@
   ansible.builtin.command: /bin/bash /opt/zotero/Zotero_linux-x86_64/set_launcher_icon
   become: true
   register: uncommon_zotero_icon # <- Registers the command output.
-  changed_when: uncommon_zotero_icon != 0 # <- Uses the return code to define when the task has changed.
+  changed_when: not uncommon_zotero_icon # <- Uses the return code to define when the task has changed.
 
 
 - name: Add Zotero to Launcher

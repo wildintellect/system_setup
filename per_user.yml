@@ -3,15 +3,15 @@
   connection: local
   # debugger: on_skipped
   debugger: on_failed
-  roles:
-    - role: gantsign.visual-studio-code
-      users:
-        - username: "{{ ansible_facts['user_id'] }}"
-          visual_studio_code_extensions:
-            - ms-python.python
+  # roles:
+  #   - role: gantsign.visual-studio-code
+  #     users:
+  #       - username: "{{ ansible_facts['user_id'] }}"
+  #         visual_studio_code_extensions:
+  #           - ms-python.python
 
     # Node with pnpm
-    - role: node
+    # - role: node
 
     # - role: morgangraphics.ansible-role-nvm
     #  nodejs_version: "lts" # Latest LTS at the time
@@ -28,9 +28,9 @@
     #  become: true
 
   tasks:
-    - name: Zotero
-      ansible.builtin.include_tasks:
-        file: roles/uncommon/tasks/zotero.yml
+    # - name: Zotero
+    #  ansible.builtin.include_tasks:
+    #    file: roles/uncommon/tasks/zotero.yml
 
     # Firefox Developer Edition
     - name: Firefox developer

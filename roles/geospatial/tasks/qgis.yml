@@ -3,7 +3,7 @@
   ansible.builtin.deb822_repository:
     name: qgis
     types: [deb, deb-src]
-    suites: "{{ ansible_distribution_release }}"
+    suites: "{{ ansible_facts['distribution_release'] }}"
     components: main
     uris: https://qgis.org/ubuntugis
     architectures: amd64
@@ -12,8 +12,14 @@
     enabled: true
 
 - name: Add Ubuntugis src repo
-  ansible.builtin.apt_repository:
-    repo: "ppa:ubuntugis/ubuntugis-unstable"
+  ansible.builtin.deb822_repository:
+    name: Ubuntugis
+    types: deb
+    suites: "{{ ansible_facts['distribution_release'] }}"
+    components: main
+    uris: https://ppa.launchpadcontent.net/ubuntugis/ubuntugis-unstable/ubuntu
+    architectures: amd64
+    signed_by: https://keyserver.ubuntu.com/pks/lookup?fingerprint=on&op=index&search=0x2EC86B48E6A9F326623CD22FFF0E7BBEC491C6A1
     state: present
     update_cache: true
 
