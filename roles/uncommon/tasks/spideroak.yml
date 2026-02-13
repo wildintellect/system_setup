@@ -3,8 +3,8 @@
 #   package_facts:
 #     manager: auto
 
-# TODO find the latest download version https://stackoverflow.com/questions/54645470/download-latest-version-of-slack-automatically
+# TODO find the latest download version https://spideroak.one/download
 - name: "Install SpiderOak"
   ansible.builtin.apt:
-    deb: https://spideroak.com/release/spideroak/deb_x64
+    deb: https://spideroak-releases.s3.us-east-2.amazonaws.com/spideroakone_7.5.2_amd64.deb
 #   when: '"spideroakone" not in ansible_facts.packages'

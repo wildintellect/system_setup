@@ -1,10 +1,4 @@
 ---
-- name: Add QGIS key
-  ansible.builtin.apt_key:
-    keyring: /etc/apt/keyrings/qgis-archive-keyring.gpg
-    url: https://download.qgis.org/downloads/qgis-archive-keyring.gpg
-    state: present
-
 - name: Add QGIS repo
   ansible.builtin.deb822_repository:
     name: qgis
@@ -13,7 +7,9 @@
     components: main
     uris: https://qgis.org/ubuntugis
     architectures: amd64
-    signed_by: /etc/apt/keyrings/qgis-archive-keyring.gpg
+    signed_by: https://download.qgis.org/downloads/qgis-archive-keyring.gpg
+    state: present
+    enabled: true
 
 - name: Add Ubuntugis src repo
   ansible.builtin.apt_repository:
