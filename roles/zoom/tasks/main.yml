@@ -45,5 +45,5 @@
 
     - name: Display installation status
       ansible.builtin.debug:
-        msg: "Zoom installed successfully at {{ positron_check.stdout }}"
+        msg: "Zoom installed successfully at {{ zoom_check.stdout }}"
       when: zoom_check.rc == 0
