@@ -7,13 +7,14 @@
       - libudunits2-dev
       - libudunits2-0
       - libssh2-1-dev
-      - default-jdk
+    #  - default-jdk
       - libssl-dev
       - libsodium-dev
       - libjq-dev
       - libprotobuf-dev
       - protobuf-compiler
       - libv8-dev
+      - pandoc
     state: present
 
 - name: Install other R based geo packages
@@ -26,7 +27,7 @@
       - libnetcdf-dev
       - netcdf-bin
       - libcairo2-dev
-      - liblwgeom-dev
+      # - liblwgeom-dev
       - gdal-bin
-    #      - python-gdal
+      - libabsl-dev # s2
     state: present

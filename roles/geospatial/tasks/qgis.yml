@@ -11,6 +11,16 @@
     state: present
     enabled: true
 
+
+- name: Get repository key fingerprint
+  ansible.builtin.uri:
+    url: https://api.launchpad.net/devel/~ubuntugis/+archive/ubuntu/ubuntugis-unstable
+    return_content: true
+    method: GET
+    headers:
+      Accept: 'application/json'
+  register: geospatial_ubuntugis_key
+
 - name: Add Ubuntugis src repo
   ansible.builtin.deb822_repository:
     name: Ubuntugis
@@ -19,9 +29,11 @@
     components: main
     uris: https://ppa.launchpadcontent.net/ubuntugis/ubuntugis-unstable/ubuntu
     architectures: amd64
-    signed_by: https://keyserver.ubuntu.com/pks/lookup?fingerprint=on&op=index&search=0x2EC86B48E6A9F326623CD22FFF0E7BBEC491C6A1
+    signed_by: |
+      {{ lookup('ansible.builtin.url',
+      'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x{{ geospatial_ubuntugis_key.json.signing_key_fingerprint }}',
+      split_lines=False) }}
     state: present
-    update_cache: true
 
 - name: Install QGIS and related packages
   ansible.builtin.apt:

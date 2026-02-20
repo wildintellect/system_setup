@@ -1,4 +1,4 @@
 ---
 - name: Install Rstudio
   ansible.builtin.apt:
-    deb: https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.5033-amd64.deb
+    deb: https://download1.rstudio.org/electron/jammy/amd64/rstudio-2026.01.1-403-amd64.deb

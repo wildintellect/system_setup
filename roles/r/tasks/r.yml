@@ -1,13 +1,13 @@
 ---
-- name: Add key
-  ansible.builtin.apt_key:
-    keyserver: keyserver.ubuntu.com
-    id: E298A3A825C0D65DFD57CBB651716619E084DAB9
-
 - name: Add CRAN repo
-  ansible.builtin.apt_repository:
-    repo: "deb https://cloud.r-project.org/bin/linux/ubuntu noble-cran40/"
-    mode: 644
+  ansible.builtin.deb822_repository:
+    name: cran
+    types: deb
+    suites: "noble-cran40/"
+    uris: https://cloud.r-project.org/bin/linux/ubuntu
+    architectures: amd64
+    signed_by: https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc
+    state: present
 
 - name: Install R
   ansible.builtin.apt:

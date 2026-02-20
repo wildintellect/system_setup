@@ -2,8 +2,8 @@
 - name: Install Positron IDE on Ubuntu
   become: true
   vars:
-    positron_version: "2026.02.0"
-    positron_build: "139"
+    positron_version: "2026.02.1"
+    positron_build: "5"
     download_url: "https://cdn.posit.co/positron/releases/deb/x86_64/Positron-{{ positron_version }}-{{ positron_build }}-x64.deb"
     temp_dir: "/tmp/positron_install"
 
@@ -19,7 +19,7 @@
         url: "{{ download_url }}"
         dest: "{{ temp_dir }}/positron.deb"
         mode: "0644"
-        checksum: "9639541d91cfa41fc4907a46b34c1df93f924f105a1ed57eef99106dbf56560d"
+        checksum: "sha256:693573242b0c0115dc89ab06bfb97fb3215bdd5f35222ea0565eac06b10f1733"
       register: r_download_result
 
     - name: Install Positron IDE
@@ -42,5 +42,5 @@
 
     - name: Display installation status
       ansible.builtin.debug:
-        msg: "Positron IDE installed successfully at {{ positron_check.stdout }}"
+        msg: "Positron IDE installed successfully at {{ r_positron_check.stdout }}"
       when: r_positron_check.rc == 0
