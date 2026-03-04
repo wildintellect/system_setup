@@ -20,6 +20,7 @@
       - jq
       - cmake
       - font-manager
+      - plocate
     state: present
     autoclean: true
     update_cache: true
