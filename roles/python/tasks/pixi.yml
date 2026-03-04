@@ -13,6 +13,6 @@
   ansible.builtin.command: "bash /tmp/pixi_install.sh"
   args:
     creates: "/home/{{ ansible_facts['user_id'] }}/.pixi"
-  when: python_pixi_download
+  when: python_pixi_download.status_code == 200
 
 # eval "$(pixi completion --shell bash)"

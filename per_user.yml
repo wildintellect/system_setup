@@ -3,12 +3,12 @@
   connection: local
   # debugger: on_skipped
   debugger: on_failed
-  # roles:
-  #   - role: gantsign.visual-studio-code
-  #     users:
-  #       - username: "{{ ansible_facts['user_id'] }}"
-  #         visual_studio_code_extensions:
-  #           - ms-python.python
+  roles:
+    - role: gantsign.visual-studio-code
+      users:
+        - username: "{{ ansible_facts['user_id'] }}"
+          visual_studio_code_extensions:
+            - ms-python.python
 
     # Node with pnpm
     # - role: node

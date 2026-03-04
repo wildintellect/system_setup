@@ -9,10 +9,14 @@
   until: python_miniforge_download is succeeded
   retries: 3
 
+- name: Miniforge directory
+  ansible.builtin.file:
+    path: "/home/{{ ansible_facts['user_id'] }}/miniforge3"
+    state: directory
+    mode: "0755"
+
 - name: Install miniforge
-  ansible.builtin.command: "bash /tmp/Miniforge3-Linux-x86_64.sh -b -f -p -c /home/{{ ansible_facts['user_id'] }}/miniforge3"
-  args:
-    creates: "/home/{{ ansible_facts['user_id'] }}/miniforge3"
-  when: python_miniforge_download
+  ansible.builtin.command: "bash /tmp/Miniforge3-Linux-x86_64.sh -b -f -c -p /home/{{ ansible_facts['user_id'] }}/miniforge3"
+  when: python_miniforge_download.status_code == 200
 
 # TODO: disable auto loading in shell, conda config --set auto_activate_base false
