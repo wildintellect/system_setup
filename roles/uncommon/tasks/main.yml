@@ -10,3 +10,7 @@
 # - name: ProtonVPN
 #  ansible.builtin.include_tasks:
 #    file: protonvpn.yml
+
+- name: Github CLI
+  ansible.builtin.include_tasks:
+    file: github.yml

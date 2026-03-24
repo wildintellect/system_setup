@@ -61,8 +61,10 @@ ansible-playbook -i inventory -c local -K per_user.yml
 
 ### Tips ###
 
+* Always lint with `ansible-lint` before attempting to run
 * Check your facts
 ```
 ansible localhost -c local -i inventory -m setup
 ```
 * [Debugging](https://docs.ansible.com/ansible/latest/user_guide/playbooks_debugger.html)
+
