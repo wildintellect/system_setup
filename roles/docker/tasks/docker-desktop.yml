@@ -1,0 +1,44 @@
+---
+- name: Install Docker Desktop on Ubuntu
+  become: true
+  vars:
+    download_url: "https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb"
+    temp_dir: "/tmp/docker_install"
+
+  block:
+    - name: Create temporary directory
+      ansible.builtin.file:
+        path: "{{ temp_dir }}"
+        state: directory
+        mode: "0755"
+
+    - name: Download Docker Desktop deb package
+      ansible.builtin.get_url:
+        url: "{{ download_url }}"
+        dest: "{{ temp_dir }}/docker-desktop-amd64.deb"
+        mode: "0644"
+        checksum: "sha256:38f120a1c9eb8349f640541e3d5c210656c009b1565219537921c185b8636a81"
+      register: docker_download_result
+
+    - name: Install Docker
+      become: true
+      ansible.builtin.apt:
+        deb: "{{ temp_dir }}/docker-desktop-amd64.deb"
+        state: present
+      when: docker_download_result is succeeded
+
+    - name: Clean up downloaded package
+      ansible.builtin.file:
+        path: "{{ temp_dir }}"
+        state: absent
+
+    - name: Verify Docker installation
+      ansible.builtin.command: which docker-desktop
+      register: docker_check
+      changed_when: false
+      failed_when: false
+
+    - name: Display installation status
+      ansible.builtin.debug:
+        msg: "Docker Desktop installed successfully at {{ docker_check.stdout }}"
+      when: docker_check.rc == 0

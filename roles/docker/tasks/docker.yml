@@ -1,57 +1,12 @@
 # Install docker packages common to all hosts
 # Configre the repo
-- name: Docker
-  block:
-    - name: Add Docker key
-      become: true
-      ansible.builtin.apt_key:
-        keyring: /etc/apt/trusted.gpg.d/docker.asc
-        url: https://download.docker.com/linux/ubuntu/gpg
-        state: present
-
-    - name: Add Docker repo
-      become: true
-      ansible.builtin.apt_repository:
-        repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/docker.asc] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
-        filename: docker
-        state: present
-
-    # install packages
-    - name: Install Docker
-      ansible.builtin.apt:
-        pkg:
-          - docker-ce
-          - docker-ce-cli
-          - containerd.io
-          - docker-buildx-plugin
-          - docker-compose-plugin
-        state: present
-        update_cache: true
-
-    # Allow non root-user
-    - name: Ensure group "docker" exists
-      ansible.builtin.group:
-        name: docker
-        state: present
-
-    - name: Add user to docker group
-      ansible.builtin.user:
-        name: "{{ docker_user }}"
-        groups: docker
-        append: true
-
-# configure where the docker images are stored
-- name: Create docker data directory
-  ansible.builtin.file:
-    path: "/home/{{ docker_user }}/.dockerdata"
-    state: directory
-    owner: "{{ docker_user }}"
-    group: docker
-    mode: '0755'
-
-- name: Install docker configuration file from template
-  become: true
-  ansible.builtin.template:
-    src: daemon.json.j2
-    dest: /etc/docker/daemon.json
-    mode: '0644'
+- name: Docker apt repo
+  ansible.builtin.deb822_repository:
+    name: docker
+    types: [deb]
+    suites: "{{ ansible_facts['distribution_release'] }}"
+    components: "stable"
+    uris: https://download.docker.com/linux/ubuntu
+    architectures: amd64
+    signed_by: https://download.docker.com/linux/ubuntu/gpg
+    state: present

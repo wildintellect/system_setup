@@ -1,0 +1,19 @@
+---
+- name: Add github cli repo
+  ansible.builtin.deb822_repository:
+    name: github-cli
+    types: [deb]
+    suites: "stable"
+    components: main
+    uris: https://cli.github.com/packages
+    architectures: amd64
+    signed_by: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+    state: present
+    enabled: true
+
+- name: Install gh command line
+  ansible.builtin.apt:
+    pkg:
+      - gh
+    state: present
+    update_cache: true

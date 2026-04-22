@@ -5,3 +5,6 @@
 - name: Docker main
   ansible.builtin.include_tasks:
     file: docker.yml
+- name: Docker desktop
+  ansible.builtin.include_tasks:
+    file: docker-desktop.yml
