@@ -3,6 +3,7 @@
   connection: local
   # debugger: on_skipped
   debugger: on_failed
+  become: true
   roles:
   #   - role: gantsign.visual-studio-code
   #     users:

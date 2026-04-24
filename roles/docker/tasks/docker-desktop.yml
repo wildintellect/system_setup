@@ -12,6 +12,13 @@
         state: directory
         mode: "0755"
 
+    - name: Install Docker Deps
+      ansible.builtin.apt:
+        pkg:
+          - gnome-terminal
+        state: present
+        update_cache: true
+
     - name: Download Docker Desktop deb package
       ansible.builtin.get_url:
         url: "{{ download_url }}"

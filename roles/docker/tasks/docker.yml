@@ -10,3 +10,4 @@
     architectures: amd64
     signed_by: https://download.docker.com/linux/ubuntu/gpg
     state: present
+    enabled: true
